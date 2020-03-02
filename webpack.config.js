@@ -16,7 +16,9 @@ var config = {
 	// n out
 	output: {
 		filename: '[name].js',
-		path: path.resolve(__dirname, 'dist')
+		path: path.resolve(__dirname, 'dist'),
+		library: 'sleek-ui',
+		libraryTarget: 'umd'
 	},
 
 	// Plug-ins
