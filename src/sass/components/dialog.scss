@@ -5,8 +5,6 @@ html.dialog-open {
 
 // Basic styling
 div.dialog {
-	--dialog-animation-duration: 0.5s;
-
 	background: var(--dialog-background, white);
 
 	width: 90%;
@@ -28,7 +26,7 @@ div.dialog {
 		position: absolute;
 		right: var(--spacing-default);
 		top: var(--spacing-default);
-		font-size: 2rem;
+		font-size: var(--dialog-close-button-size, 2rem);
 		line-height: 1;
 		color: var(--dialog-close-button-color, --color-text);
 	}
@@ -50,13 +48,13 @@ div.dialog {
 	pointer-events: none;
 	opacity: 0;
 	transform: translate(-50%, -50%) scale(0.9);
-	transition: opacity var(--dialog-animation-duration) ease, transform var(--dialog-animation-duration) ease;
+	transition: opacity var(--dialog-animation-duration, 0.5s) ease, transform var(--dialog-animation-duration, 0.5s) ease;
 }
 
 div.dialog + div.backdrop {
 	pointer-events: none;
 	opacity: 0;
-	transition: opacity var(--dialog-animation-duration) ease;
+	transition: opacity var(--dialog-animation-duration, 0.5s) ease;
 }
 
 div.dialog.open,

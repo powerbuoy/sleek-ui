@@ -1,3 +1,5 @@
+'use strict';
+
 export default class SubmitOnchange {
 	constructor (conf) {
 		this.config = Object.assign({

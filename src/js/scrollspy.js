@@ -1,3 +1,5 @@
+'use strict';
+
 export default class Scrollspy {
 	constructor (conf) {
 		this.config = Object.assign({

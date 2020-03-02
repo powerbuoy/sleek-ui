@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "sleek-map": "github:powerbuoy/sleek-map"
   }
 }

@@ -1,3 +1,5 @@
+'use strict';
+
 export default class ToggleHash {
 	constructor (conf) {
 		this.config = Object.assign({

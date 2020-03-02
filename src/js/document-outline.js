@@ -1,3 +1,5 @@
+'use strict';
+
 export default class DocumentOutline {
 	constructor (conf) {
 		this.config = Object.assign({

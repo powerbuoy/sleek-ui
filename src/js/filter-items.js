@@ -1,3 +1,5 @@
+'use strict';
+
 export default class FilterItems {
 	constructor (conf) {
 		this.config = Object.assign({
