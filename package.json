@@ -34,8 +34,5 @@
     "sass-loader": "^8.0.2",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11"
-  },
-  "dependencies": {
-    "normalize.css": "^8.0.1"
   }
 }
