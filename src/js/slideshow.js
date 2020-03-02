@@ -4,7 +4,7 @@ import Glide from '@glidejs/glide';
 
 //////////////////////////
 // Modify the active class
-var VisibleClass = function (Glide, Components, Events) {
+var SlideshowVisibleClass = function (Glide, Components, Events) {
 	var Component = {
 		mount () {
 			this.setVisibleClasses();
@@ -176,7 +176,7 @@ export default class Slideshow {
 				// HACK: Allow other code to add events to el.glidejs before mounting
 				setTimeout(() => {
 					el.glidejs.mount({
-					//	VisibleClass // NOTE: Use if needed
+					//	SlideshowVisibleClass // NOTE: Use if needed
 					});
 				});
 			}

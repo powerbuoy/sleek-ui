@@ -1,14 +1,12 @@
 'use strict';
 
-import CountTo from './count-to.js';
-import Dialog from './dialog.js';
-import DocumentOutline from './document-outline.js';
-import FilterItems from './filter-items.js';
-import GoogleMap from './google-map.js';
-import ScrollStats from './scroll-stats.js';
-import Scrollspy from './scrollspy.js';
-import Slideshow from './slideshow.js';
-import SubmitOnchange from './submit-onchange.js';
-import ToggleHash from './toggle-hash.js';
-
-export { CountTo, Dialog, DocumentOutline, FilterItems, GoogleMap, ScrollStats, Scrollspy, Slideshow, SubmitOnchange, ToggleHash };
+export { default as CountTo } from './count-to.js';
+export { default as Dialog } from './dialog.js';
+export { default as DocumentOutline } from './document-outline.js';
+export { default as FilterItems } from './filter-items.js';
+export { default as GoogleMap } from './google-map.js';
+export { default as ScrollStats } from './scroll-stats.js';
+export { default as Scrollspy } from './scrollspy.js';
+export { default as Slideshow } from './slideshow.js';
+export { default as SubmitOnchange } from './submit-onchange.js';
+export { default as ToggleHash } from './toggle-hash.js';
