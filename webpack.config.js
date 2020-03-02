@@ -2,15 +2,11 @@
 const path = require('path');
 const glob = require('glob');
 
-// Plugins
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-
 // Base config
 var config = {
 	// In
 	entry: {
-		'sleek-ui': ['./src/js/sleek-ui.js', './src/sass/sleek-ui.scss']
+		'sleek-ui': './src/js/sleek-ui.js'
 	},
 
 	// n out
@@ -20,13 +16,6 @@ var config = {
 		library: 'sleek-ui',
 		libraryTarget: 'umd'
 	},
-
-	// Plug-ins
-	plugins: [
-		new MiniCssExtractPlugin({
-			filename: '[name].css'
-		})
-	],
 
 	// Config
 	module: {
@@ -41,51 +30,6 @@ var config = {
 						loader: 'babel-loader',
 						options: {
 							presets: ['@babel/preset-env']
-						}
-					}
-				]
-			},
-
-			// SASS
-			{
-				test: /\.(s)?css$/,
-				exclude: /node_modules/,
-				use: [
-					// Extract CSS(???)
-					{
-						loader: MiniCssExtractPlugin.loader,
-						options: {
-							sourceMap: true
-						}
-					},
-
-					// Enable importing CSS(???)
-					{
-						loader: 'css-loader',
-						options: {
-							sourceMap: true,
-							url: false // Don't parse url()
-						}
-					},
-
-					// PostCSS (autoprefixer etc)
-					{
-						loader: 'postcss-loader',
-						options: {
-							plugins: [
-								require('autoprefixer'),
-								require('postcss-custom-media'),
-								require('postcss-custom-selectors')
-							],
-							sourceMap: true
-						}
-					},
-
-					// SASS
-					{
-						loader: 'sass-loader',
-						options: {
-							sourceMap: true
 						}
 					}
 				]
@@ -107,9 +51,6 @@ module.exports = (env, argv) => {
 
 		// Sourcemaps
 		config.devtool = 'source-map';
-	}
-	else {
-		config.plugins.push(new OptimizeCssAssetsPlugin());
 	}
 
 	return config;
