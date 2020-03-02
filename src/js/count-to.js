@@ -1,16 +1,50 @@
 'use strict';
 
 export default class CountTo {
-	constructor (conf) {
+	constructor (el, conf) {
+		this.el = el;
 		this.config = Object.assign({
-
+			from: 0,
+			to: null,
+			duration: 2,
+			locale: 'en-US',
+			options: {
+				maximumFractionDigits: 0 // TODO: Should depend on whether input is int or float
+			}
 		}, conf);
-
-		console.log('CountTo');
-		console.dir(this.config);
 	}
 
-	init () {
+	mount () {
+		const countTo = parseInt(this.config.to); // TODO: Add support for float
+		const step = countTo / this.config.duration;
+		var currentVal = this.config.from;
+		var dt;
+		var time;
 
+		this.el.innerHTML = currentVal;
+
+		const increaseCount = () => {
+			dt = Date.now() - time;
+			time = Date.now();
+
+			currentVal += (step * (dt / 1000));
+
+			if (currentVal >= countTo) {
+				currentVal = countTo;
+			}
+			else {
+				requestAnimationFrame(increaseCount);
+			}
+
+			this.el.innerText = currentVal.toLocaleString(this.config.locale, this.config.options);
+		};
+
+		new IntersectionObserver(entries => entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				time = Date.now();
+
+				requestAnimationFrame(increaseCount);
+			}
+		}), {threshold: 1}).observe(this.el);
 	}
 }

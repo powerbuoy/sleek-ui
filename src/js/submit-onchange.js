@@ -1,16 +1,17 @@
 'use strict';
 
 export default class SubmitOnchange {
-	constructor (conf) {
-		this.config = Object.assign({
-
-		}, conf);
-
-		console.log('SubmitOnchange');
-		console.dir(this.config);
+	constructor (form) {
+		this.form = form;
 	}
 
-	init () {
+	mount () {
+		this.form.addEventListener('change', e => {
+			// Trigger onsubmit
+			this.form.dispatchEvent(new Event('submit', {bubbles: true}));
 
+			// Actually submit the form
+			this.form.submit();
+		});
 	}
 }

@@ -3,24 +3,24 @@
 export default class Dialog {
 	constructor (conf) {
 		this.config = Object.assign({
-			triggers: document.querySelectorAll('a[href$="-dialog"]')
+			triggers: document.querySelectorAll('a[href^="#dialog-"]')
 		}, conf);
 	}
 
-	init () {
-		this.initTemplateDialog();
-		this.initDialogs();
-		this.initTriggers();
+	mount () {
+		this.mountTemplateDialog();
+		this.mountDialogs();
+		this.mountTriggers();
 	}
 
-	initTemplateDialog () {
+	mountTemplateDialog () {
 		this.templateDialog = document.createElement('div');
 
 		this.templateDialog.classList.add('dialog');
 		document.body.appendChild(this.templateDialog);
 	}
 
-	initDialogs () {
+	mountDialogs () {
 		document.querySelectorAll('div.dialog').forEach(dialog => {
 			// Insert methods
 			dialog.sleekDialog = {
@@ -73,7 +73,7 @@ export default class Dialog {
 		});
 	}
 
-	initTriggers () {
+	mountTriggers () {
 		this.config.triggers.forEach(el => {
 			el.addEventListener('click', e => {
 				e.preventDefault();

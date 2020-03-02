@@ -1,3 +1,7 @@
+[data-slideshow] {
+	--slideshow-gap: var(--grid-gap, 2rem);
+}
+
 // Allow positioning stuff outside slideshow
 .glide {
 	position: static;
@@ -8,6 +12,14 @@
 	overflow: visible;
 }
 
+// Slideshow with slides visible outside
+.slideshow--bleed {
+	.glide__track {
+		overflow: visible;
+	}
+}
+
+// Prev / next buttons
 .slideshow-nav {
 	@media (--tablet-max) {
 		display: none;
@@ -28,6 +40,7 @@
 	}
 }
 
+// Bullet navigation
 .slideshow-bullets {
 	margin-top: var(--spacing-default);
 	text-align: center;
@@ -79,12 +92,5 @@
 		&::after {
 			transform: translate(-50%, -50%) scale(1);
 		}
-	}
-}
-
-// Slideshow with slides visible outside
-.slideshow--bleed {
-	.glide__track {
-		overflow: visible;
 	}
 }

@@ -1,10 +1,10 @@
 'use strict';
 
 export default class Scrollspy {
-	constructor (conf) {
+	constructor (el, conf) {
+		this.el = el;
 		this.config = Object.assign({
 			threshold: 0.75,
-			selectors: ['#site-header, #site-footer, main > section'],
 			callback: (entry) => {
 				if (entry.isIntersecting) {
 					entry.target.classList.add('in-view', 'was-in-view');
@@ -16,17 +16,17 @@ export default class Scrollspy {
 		}, conf);
 	}
 
-	init () {
-		document.querySelectorAll(this.config.selectors.join(',')).forEach(el => {
-			const elHeight = el.getBoundingClientRect().height;
-			var th = this.config.threshold;
+	mount () {
+		const elHeight = this.el.getBoundingClientRect().height;
+		var th = this.config.threshold;
 
-			// The element is too tall to ever hit the threshold - change threshold
-			if (elHeight > (window.innerHeight * this.config.threshold)) {
-				th = ((window.innerHeight * this.config.threshold) / elHeight) * this.config.threshold;
-			}
+		// The element is too tall to ever hit the threshold - change threshold
+		if (elHeight > (window.innerHeight * this.config.threshold)) {
+			th = ((window.innerHeight * this.config.threshold) / elHeight) * this.config.threshold;
+		}
 
-			new IntersectionObserver(iEls => iEls.forEach(iEl => toggleViewClass(iEl)), {threshold: th}).observe(el);
-		});
+		console.log(th);
+
+		new IntersectionObserver(entries => entries.forEach(entry => this.config.callback(entry)), {threshold: th}).observe(this.el);
 	}
 }
