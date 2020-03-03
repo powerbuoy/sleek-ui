@@ -14,8 +14,14 @@ $site-width-min: 90vw;
 @custom-media --desktop (min-width: 1260px);
 @custom-media --desktop-max (max-width: 1259px);
 
-/////////
-// Config
+////////////////
+// Global config
+:root {
+
+}
+
+///////////////////
+// Component config
 :root {
 	
 }

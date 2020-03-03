@@ -1,0 +1,32 @@
+@mixin button-base {
+	background: var(--button-color, var(--color-primary, blue));
+
+	box-sizing: border-box;
+	display: inline-block;
+	padding: var(--button-padding-vertical, 0.75rem) var(--button-padding-horizontal, 1.25rem);
+	vertical-align: middle;
+
+	font-size: var(--button-font-size, var(--body-font-size, inherit));
+	font-family: var(--button-font-family, var(--body-font-family, inherit));
+	font-weight: var(--button-font-weight, normal);
+
+	letter-spacing: var(--button-letter-spacing, 0);
+	line-height: var(--button-line-height, 1.2);
+
+	text-transform: var(--button-text-transform, none));
+	text-decoration: none;
+	text-align: center;
+	color: var(--button-text-color, white);
+
+	outline: 0;
+	border: 1px solid var(--button-color, var(--color-primary, blue));
+	border-radius: var(--button-border-radius, var(--border-radius, 0));
+
+	transition: all var(--button-transition-duration, 0.25s) ease;
+	box-shadow: var(--button-shadow, none);
+
+	&:hover {
+		color: var(--button-text-color, white);
+		text-decoration: none;
+	}
+}
