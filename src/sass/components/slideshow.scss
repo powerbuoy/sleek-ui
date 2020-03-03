@@ -1,6 +1,6 @@
 // Set the slideshow-gap which is used by the JS
 [data-slideshow] {
-	--slideshow-gap: var(--grid-gap, 2rem);
+	--slideshow-gap: var(--grid-gap, 3rem);
 }
 
 // Allow positioning stuff outside slideshow
@@ -27,7 +27,7 @@
 
 // Bullet navigation
 .slideshow-bullets {
-	margin-top: var(--slideshow-bullets-margin-top, var(--spacing-medium, 1.5rem));
+	margin-top: var(--slideshow-bullets-margin-top, var(--spacing-medium, 1rem));
 	text-align: center;
 
 	a {

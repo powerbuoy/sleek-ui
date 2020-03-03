@@ -24,8 +24,8 @@ div.dialog {
 
 	.dialog__close {
 		position: absolute;
-		right: var(--spacing-medium, 1.5rem);
-		top: var(--spacing-medium, 1.5rem);
+		right: var(--spacing-medium, 1rem);
+		top: var(--spacing-medium, 1rem);
 		font-size: var(--dialog-close-button-size, 2rem);
 		line-height: 1;
 		color: var(--dialog-close-button-color, var(--text-color, black));

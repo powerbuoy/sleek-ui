@@ -49,7 +49,7 @@ a {
 	color: var(--link-color, blue);
 	text-decoration: none;
 	cursor: pointer;
-	transition: color .25s ease;
+	transition: color var(--link-color-transition-duration, 0.25s) ease;
 
 	&:hover {
 		color: var(--link-color-hover, darkblue);

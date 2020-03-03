@@ -17,17 +17,17 @@ textarea {
 	margin: 0;
 	padding: var(--form-field-padding-vertical, 0.75rem) var(--form-field-padding-horizontal, 1.25rem);
 
-	font-size: var(--form-field-font-size, var(--body-font-size, 1rem));
-	font-family: var(--form-field-font-family, var(--body-font-family, sans-serif));
-	font-weight: var(--form-field-font-weight, var(--body-font-weight, normal));
+	font-size: var(--form-field-font-size, var(--body-font-size, inherit));
+	font-family: var(--form-field-font-family, var(--body-font-family, inherit));
+	font-weight: var(--form-field-font-weight, var(--body-font-weight, inherit));
 
-	letter-spacing: var(--form-field-letter-spacing, var(--body-letter-spacing, 0));
-	line-height: var(--form-field-line-height, var(--body-line-height, 1.4));
+	letter-spacing: var(--form-field-letter-spacing, var(--body-letter-spacing, inherit));
+	line-height: var(--form-field-line-height, var(--body-line-height, inherit));
 
 	text-transform: none;
 	text-decoration: none;
 	text-align: left;
-	color: var(--form-field-text-color, var(--text-color, black));
+	color: var(--form-field-text-color, var(--text-color, inherit));
 
 	transition: all .25s ease;
 	border: 1px solid var(--form-field-border-color, var(--color-border, black));

@@ -1,12 +1,13 @@
 @mixin heading ($size: var(--h1-size, 3rem), $color: var(--text-color, black)) {
 	display: block;
-	margin: 0 0 var(--heading-margin, var(--spacing-medium, 1.5rem));
+	margin: 0 0 var(--heading-margin, var(--spacing-medium, 1rem));
 
-	font-weight: var(--heading-font-weight, bold);
 	font-family: var(--heading-font-family, var(--body-font-family, sans-serif));
+	font-weight: var(--heading-font-weight, bold);
 
 	line-height: var(--heading-line-height, 1.2);
 	letter-spacing: var(--heading-letter-spacing, 0);
+	text-transform: var(--heading-text-transform, none);
 
 	@if ($size) {
 		font-size: $size;
@@ -25,9 +26,9 @@
 	font-family: var(--body-font-family, sans-serif);
 	font-weight: var(--body-font-weight, normal);
 
+	line-height: var(--body-line-height, 1.6);
 	letter-spacing: var(--body-letter-spacing, 0);
-	line-height: var(--body-line-height, 1.4);
-	text-transform: none; // TODO: Probably shouldn't be hard-coded
+	text-transform: var(--body-text-transform, none);
 
 	@if ($size) {
 		font-size: $size;
