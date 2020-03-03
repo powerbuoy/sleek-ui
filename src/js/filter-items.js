@@ -1,13 +1,11 @@
 'use strict';
 
 export default class FilterItems {
-	constructor (form, conf) {
+	constructor (form, items) {
 		this.form = form;
 		this.selects = this.form.querySelectorAll('select');
 		this.q = this.form.querySelector('[name="q"]');
-		this.config = Object.assign({
-			items: null
-		}, conf);
+		this.items = items;
 	}
 
 	mount () {
@@ -32,7 +30,7 @@ export default class FilterItems {
 
 	filterItems () {
 		// Show all items by default
-		this.config.items.forEach(el => el.classList.remove('filter-items--hidden'));
+		this.items.forEach(el => el.classList.remove('filter-items--hidden'));
 
 		// Store all <select>-element values
 		var classes = [];
@@ -46,10 +44,10 @@ export default class FilterItems {
 		// If we have either <select> values or a search string
 		if (classes.length || this.q.value.length) {
 			// Hide all items
-			this.config.items.forEach(el => el.classList.add('filter-items--hidden'));
+			this.items.forEach(el => el.classList.add('filter-items--hidden'));
 
 			// Filter out the visible items
-			const visibleItems = Array.from(this.config.items).filter(item => {
+			const visibleItems = Array.from(this.items).filter(item => {
 				var isClassMatch = false;
 				var isQMatch = false;
 
