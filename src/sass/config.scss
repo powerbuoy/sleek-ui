@@ -49,6 +49,10 @@ $site-width-min: 90vw;
 	--body-text-transform: none;
 	--text-color: black;
 
+	// Additional sizes
+	--large-font-size: 1.2rem;
+	--small-font-size: 0.8rem;
+
 	// Headings
 	--h1-size: 3rem;
 	--h2-size: 2.6rem;
@@ -93,27 +97,29 @@ $site-width-min: 90vw;
 	// Dialog
 /*	--dialog-background: white;
 	--dialog-width: 40rem;
-	--dialog-padding: var(--spacing-large, 3rem);
-	--dialog-shadow: var(--shadow-large, 0 1rem 1rem rgba(0, 0, 0, .25));
-	--spacing-medium: 1rem;
+	--dialog-padding: var(--spacing-large);
+	--dialog-shadow: var(--shadow-large);
 	--dialog-close-button-size: 2rem;
-	--dialog-close-button-color: var(--text-color, black);
-	--dialog-backdrop-color: var(--color-overlay, rgba(0, 0, 0, .6));
+	--dialog-close-button-color: var(--text-color);
+	--dialog-backdrop-color: var(--color-overlay);
 	--dialog-animation-duration: 0.5s; */
 
 	// Form
 /*	--form-field-bg: white;
 	--form-field-padding-vertical: 0.75rem;
 	--form-field-padding-horizontal: 1.25rem;
-	--form-field-font-size: var(--body-font-size, inherit);
-	--form-field-font-family: var(--body-font-family, inherit);
-	--form-field-font-weight: var(--body-font-weight, inherit);
-	--form-field-letter-spacing: var(--body-letter-spacing, inherit);
-	--form-field-line-height: var(--body-line-height, inherit);
-	--form-field-text-color: var(--text-color, inherit);
-	--form-field-border-color: var(--color-border, black);
-	--form-field-border-radius: var(--border-radius, 0);
-	--form-field-border-focus-color: black;
+
+	--form-field-font-size: var(--body-font-size);
+	--form-field-font-family: var(--body-font-family);
+	--form-field-font-weight: var(--body-font-weight);
+	--form-field-letter-spacing: var(--body-letter-spacing);
+	--form-field-line-height: var(--body-line-height);
+	--form-field-text-color: var(--text-color);
+
+	--form-field-border-color: var(--color-border);
+	--form-field-border-radius: var(--border-radius);
+	--form-field-border-focus-color: var(--color-primary);
+
 	--select-arrow-size: 0.5rem;
 	--placeholder-color: var(--color-gray, #999); */
 }
