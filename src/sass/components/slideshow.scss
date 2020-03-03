@@ -1,3 +1,4 @@
+// Set the slideshow-gap which is used by the JS
 [data-slideshow] {
 	--slideshow-gap: var(--grid-gap, 2rem);
 }
@@ -21,28 +22,12 @@
 
 // Prev / next buttons
 .slideshow-nav {
-	@media (--tablet-max) {
-		display: none;
-	}
 
-	.slideshow-prev,
-	.slideshow-next {
-		position: absolute;
-		left: calc(var(--site-padding) / 2);
-		top: 50%;
-		transform: translate(-50%);
-	}
-
-	.slideshow-next {
-		left: auto;
-		right: calc(var(--site-padding) / 2);
-		transform: translate(50%, -50%);
-	}
 }
 
 // Bullet navigation
 .slideshow-bullets {
-	margin-top: var(--spacing-default);
+	margin-top: var(--slideshow-bullets-margin-top, var(--spacing-medium, 1.5rem));
 	text-align: center;
 
 	a {
@@ -52,9 +37,9 @@
 		vertical-align: middle;
 		position: relative;
 
-		width: 0.5rem;
-		height: 0.5rem;
-		margin: 0 var(--spacing-x-small);
+		width: var(--slideshow-bullets-size, 0.5rem);
+		height: var(--slideshow-bullets-size, 0.5rem);
+		margin: 0 var(--slideshow-bullets-margin, var(--spacing-x-small, 0.25rem));
 
 		font-size: 0;
 		border-radius: 50%;

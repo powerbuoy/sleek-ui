@@ -19,22 +19,22 @@ div.dialog {
 	top: 50%;
 	transform: translate(-50%, -50%);
 
-	padding: var(--dialog-padding, var(--spacing-large));
-	box-shadow: var(--dialog-shadow, var(--shadow-3));
+	padding: var(--dialog-padding, var(--spacing-large, 3rem));
+	box-shadow: var(--dialog-shadow, var(--shadow-large, 0 1rem 1rem rgba(0, 0, 0, .25)));
 
 	.dialog__close {
 		position: absolute;
-		right: var(--spacing-default);
-		top: var(--spacing-default);
+		right: var(--spacing-medium, 1.5rem);
+		top: var(--spacing-medium, 1.5rem);
 		font-size: var(--dialog-close-button-size, 2rem);
 		line-height: 1;
-		color: var(--dialog-close-button-color, --color-text);
+		color: var(--dialog-close-button-color, var(--text-color, black));
 	}
 }
 
 // Backdrop
 div.dialog + div.backdrop {
-	background: var(--dialog-backdrop-color, var(--color-overlay));
+	background: var(--dialog-backdrop-color, var(--color-overlay, rgba(0, 0, 0, .6)));
 	position: fixed;
 	left: 0;
 	top: 0;

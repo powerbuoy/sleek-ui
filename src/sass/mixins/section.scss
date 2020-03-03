@@ -1,0 +1,5 @@
+@mixin section ($width: $site-width) {
+	@include site-padding($width);
+
+	padding: var(--section-padding, var(--spacing-x-large, 6rem)) var(--site-padding);
+}

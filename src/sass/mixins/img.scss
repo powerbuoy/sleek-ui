@@ -1,0 +1,36 @@
+@mixin img-background {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -2;
+
+	width: 100%;
+	height: 100%;
+
+	object-fit: cover;
+	object-position: center center;
+}
+
+@mixin ratio ($width: 16, $height: 9) {
+	$padding-bottom: percentage($height / $width);
+
+	&::before {
+		display: block;
+		content: "";
+		padding-bottom: $padding-bottom;
+	}
+}
+
+@mixin img-ratio ($width: 16, $height: 9) {
+	@include ratio($width, $height);
+
+	position: relative;
+	overflow: hidden;
+
+	> img,
+	> :not(figcaption) img {
+		@include img-background;
+
+		z-index: auto;
+	}
+}

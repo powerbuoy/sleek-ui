@@ -1,0 +1,28 @@
+$num-cols: 6 !default;
+
+.grid,
+[class*="grid--"] {
+	@include grid(1);
+}
+
+@for $i from 2 through $num-cols {
+	.grid--#{$i} {
+		--grid-cols: #{$i};
+	}
+}
+
+@media (--tablet) {
+	@for $i from 2 through $num-cols {
+		.tablet\:grid--#{$i} {
+			--grid-cols: #{$i};
+		}
+	}
+}
+
+@media (--laptop) {
+	@for $i from 2 through $num-cols {
+		.laptop\:grid--#{$i} {
+			--grid-cols: #{$i};
+		}
+	}
+}

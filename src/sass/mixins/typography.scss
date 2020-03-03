@@ -1,0 +1,50 @@
+@mixin heading ($size: var(--h1-size, 3rem), $color: var(--text-color, black)) {
+	display: block;
+	margin: 0 0 var(--heading-margin, var(--spacing-medium, 1.5rem));
+
+	font-weight: var(--heading-font-weight, bold);
+	font-family: var(--heading-font-family, var(--body-font-family, sans-serif));
+
+	line-height: var(--heading-line-height, 1.2);
+	letter-spacing: var(--heading-letter-spacing, 0);
+
+	@if ($size) {
+		font-size: $size;
+	}
+
+	@if ($color) {
+		color: $color;
+	}
+
+	a {
+		color: currentColor;
+	}
+}
+
+@mixin text ($size: var(--body-font-size, 1rem), $color: var(--text-color, black)) {
+	font-family: var(--body-font-family, sans-serif);
+	font-weight: var(--body-font-weight, normal);
+
+	letter-spacing: var(--body-letter-spacing, 0);
+	line-height: var(--body-line-height, 1.4);
+	text-transform: none; // TODO: Probably shouldn't be hard-coded
+
+	@if ($size) {
+		font-size: $size;
+	}
+
+	@if ($color) {
+		color: $color;
+	}
+}
+
+@mixin ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+@mixin hyphens {
+	word-wrap: break-word;
+	hyphens: auto;
+}

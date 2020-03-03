@@ -1,9 +1,5 @@
 .google-map {
-	background: var(--google-map-background, #def);
-	height: var(--google-map-height, 20rem);
+	background: var(--google-map-bg, #def);
+	height: var(--google-map-height, 30rem);
 	overflow: hidden;
-
-	@media (--tablet) {
-		height: var(--google-map-height-tablet, 30rem);
-	}
 }

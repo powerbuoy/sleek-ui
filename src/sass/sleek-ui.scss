@@ -1,12 +1,59 @@
+/////////
+// Config
+$site-width: 1080px !default;
+$site-width-min: 90vw !default;
+
+///////////////
+// Site padding
+@mixin site-padding ($width: $site-width, $var-name: --site-padding) {
+	// Remove units from width (px) and width-min (% / vw)
+	// https://css-tricks.com/snippets/sass/strip-unit-function/
+	$width-no-unit: $width / ($width * 0 + 1);
+	$width-min-no-unit: $site-width-min / ($site-width-min * 0 + 1);
+
+	// Window width in px when $site-width is fully reached
+	$reached: #{($width-no-unit / $width-min-no-unit) * 100px};
+
+	// Set site padding to (100% - 90%) / 2 (5% on each side)
+	#{$var-name}: #{(100vw - $site-width-min) / 2};
+
+	// When resolution is wide enough to fit entire site width
+	// set it to (100% - 980px) / 2 (110px on each side in a 1200x800 window)
+	@media (min-width: #{$reached}) {
+		#{$var-name}: calc((100vw - #{$width}) / 2);
+	}
+}
+
+:root {
+	@include site-padding;
+}
+
+///////////////////
+// Custom selectors
+@custom-selector :--heading h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6;
+@custom-selector :--form-field input[type=text], input[type=password], input[type=search], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=date], input[type=month], input[type=week], input[type=time], input[type=datetime], input[type=datetime-local], input[type=color];
+
 // Vendor
 @import "~normalize.css/normalize.css";
 @import "~@glidejs/glide/src/assets/sass/glide.core";
 
 // Mixins
+@import "mixins/auto-icons";
 @import "mixins/burger-menu";
+@import "mixins/container";
+@import "mixins/grid";
+@import "mixins/img";
+@import "mixins/list";
+@import "mixins/section";
+@import "mixins/typography";
 @import "mixins/utils";
 
 // Components
+@import "components/base";
+@import "components/container";
 @import "components/dialog";
+@import "components/form";
 @import "components/google-map";
+@import "components/grid";
 @import "components/slideshow";
+@import "components/wp-classes";
