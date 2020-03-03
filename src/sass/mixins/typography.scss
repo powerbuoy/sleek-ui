@@ -1,8 +1,8 @@
-@mixin heading ($size: var(--h1-size, 3rem), $color: var(--text-color, black)) {
+@mixin heading ($size: var(--h1-size, 3rem), $color: var(--heading-color, var(--text-color), black)) {
 	display: block;
 	margin: 0 0 var(--heading-margin, var(--spacing-medium, 1rem));
 
-	font-family: var(--heading-font-family, var(--body-font-family, sans-serif));
+	font-family: var(--heading-font-family, var(--body-font-family, inherit));
 	font-weight: var(--heading-font-weight, bold);
 
 	line-height: var(--heading-line-height, 1.2);
