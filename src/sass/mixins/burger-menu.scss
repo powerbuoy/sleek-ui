@@ -1,9 +1,7 @@
 // Reversed E
-@mixin burger-menu ($color: currentColor, $size: 24px, $thickness: 4px, $middle-width: 100%) {
-	$middle-position: 100% - $middle-width;
-
-	background-image: linear-gradient(to right, transparent, transparent $middle-position, $color $middle-position);
-	background-size: 100% $thickness;
+@mixin burger-menu ($color: currentColor) {
+	background-image: linear-gradient(to right, transparent, transparent calc(100% - var(--burger-menu-middle-width, 100%)), $color calc(100% - var(--burger-menu-middle-width, 100%)));
+	background-size: 100% var(--burger-menu-thickness, 2px);
 	background-position: left 50%;
 	background-repeat: no-repeat;
 	transition: background-position 0.25s 0.25s ease;
@@ -12,8 +10,8 @@
 	position: relative;
 	overflow: hidden;
 
-	width: $size;
-	height: $size;
+	width: var(--burger-menu-size, 24px);
+	height: var(--burger-menu-size, 24px);
 
 	&::before,
 	&::after {
@@ -26,7 +24,7 @@
 		left: 0;
 		top: 0;
 		width: 100%;
-		height: $thickness;
+		height: var(--burger-menu-thickness, 2px);
 
 		transition: top 0.25s 0.25s ease, transform 0.25s ease;
 	}
@@ -38,8 +36,8 @@
 	}
 }
 
-@mixin burger-menu-open ($color: false, $size: 24px, $thickness: 4px) {
-	background-position: $size 50%;
+@mixin burger-menu-open ($color: false) {
+	background-position: var(--burger-menu-size, 24px) 50%;
 	transition: background-position 0.25s ease;
 
 	@if ($color) {
@@ -50,24 +48,24 @@
 	}
 
 	&::before {
-		top: calc(50% - #{$thickness / 2});
+		top: calc(50% - (var(--burger-menu-thickness, 2px) / 2));
 		transform: rotate(45deg);
 		transition: top 0.25s ease, transform 0.25s 0.25s ease;
 	}
 
 	&::after {
-		bottom: calc(50% - #{$thickness / 2});
+		bottom: calc(50% - (var(--burger-menu-thickness, 2px) / 2));
 		transform: rotate(-45deg);
 		transition: bottom 0.25s ease, transform 0.25s 0.25s ease;
 	}
 }
 
 // Two lines
-@mixin burger-menu-two-lines ($color: currentColor, $size: 24px, $thickness: 2px) {
+@mixin burger-menu-two-lines ($color: currentColor) {
 	position: relative;
 	display: inline-block;
-	width: $size;
-	height: $size;
+	width: var(--burger-menu-size, 24px);
+	height: var(--burger-menu-size, 24px);
 
 	&::before,
 	&::after {
@@ -79,15 +77,15 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translate(-50%, -#{$size / 6}) rotate(0deg);
+		transform: translate(-50%, calc((var(--burger-menu-size, 24px) / 6) * -1)) rotate(0deg);
 		transition: transform 0.5s ease, background-color 0.5s ease;
 
 		width: 100%;
-		height: $thickness;
+		height: var(--burger-menu-thickness, 2px);
 	}
 
 	&::after {
-		transform: translate(-50%, #{$size / 6}) rotate(0deg);
+		transform: translate(-50%, calc(var(--burger-menu-size, 24px) / 6)) rotate(0deg);
 	}
 }
 
