@@ -36,7 +36,7 @@ export default class ScrollStats {
 			this.lastScrollTopNS = st;
 		}
 
-		// If user has scrolled passed sensitivity
+		// If user has scrolled past sensitivity
 		if (Math.abs(this.lastScrollTop - st) > this.config.farThreshold) {
 			if (st > this.lastScrollTop) {
 				this.config.classEl.classList.remove('scrolling-up-far');
