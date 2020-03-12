@@ -4,10 +4,6 @@
   "description": "Lightweight SASS and JS library for common UI elements",
   "main": "dist/sleek-ui.js",
   "module": "src/js/sleek-ui.js",
-  "exports": {
-    ".": "dist/sleek-ui.js",
-    "./module": "src/js/sleek-ui.js"
-  },
   "sideEffects": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
