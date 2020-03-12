@@ -7,11 +7,20 @@ export class DialogTrigger {
 			target: document.getElementById(this.el.getAttribute('href').substr(1)),
 			templateDialog: null
 		}, conf);
+		this.openEvent = new CustomEvent('sleek-ui-dialog-trigger-open', {
+			bubbles: true,
+			detail: {
+				dialog: this.config.target,
+				data: this.el.dataset.dialogData || null
+			}
+		});
 	}
 
 	mount () {
 		this.el.addEventListener('click', e => {
 			e.preventDefault();
+
+			this.el.dispatchEvent(this.openEvent);
 
 			// The target is a template
 			if (this.config.target.nodeName.toLowerCase() === 'script') {
@@ -41,6 +50,18 @@ export default class Dialog {
 	constructor (el, conf) {
 		this.el = el;
 		this.config = Object.assign({}, conf);
+		this.openEvent = new CustomEvent('sleek-ui-dialog-open', {
+			bubbles: true,
+			detail: {
+				dialog: this.el
+			}
+		});
+		this.closeEvent = new CustomEvent('sleek-ui-dialog-close', {
+			bubbles: true,
+			detail: {
+				dialog: this.el
+			}
+		});
 	}
 
 	mount () {
@@ -50,11 +71,13 @@ export default class Dialog {
 				document.documentElement.classList.add('dialog-open');
 				document.documentElement.classList.add('dialog-open--' + this.el.id);
 				this.el.classList.add('open');
+				this.el.dispatchEvent(this.openEvent);
 			},
 			close: () => {
 				document.documentElement.classList.remove('dialog-open');
 				document.documentElement.classList.remove('dialog-open--' + this.el.id);
 				this.el.classList.remove('open');
+				this.el.dispatchEvent(this.closeEvent);
 			},
 			isOpen: () => {
 				return this.el.classList.contains('open');
