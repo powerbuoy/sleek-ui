@@ -5,7 +5,7 @@ export default class ScrollStats {
 		this.config = Object.assign({
 			classEl: document.documentElement,
 			farThreshold: 100
-		});
+		}, conf);
 		this.lastScrollTop = 0;
 		this.lastScrollTopNS = 0;
 	}
