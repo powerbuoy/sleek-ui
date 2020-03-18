@@ -1,7 +1,7 @@
 /////////////
 // Site width
 $site-width: 1080px;
-$site-width-min: 90vw;
+$site-width-max: 90vw;
 
 ///////////////////////
 // Custom media queries
@@ -74,7 +74,7 @@ $site-width-min: 90vw;
 	--section-padding: var(--spacing-x-large);
 
 	// Button
-/*	--button-color: #ffbf00;
+	--button-color: #ffbf00;
 	--button-padding-vertical: 1rem;
 	--button-padding-horizontal: 2.6rem;
 
@@ -88,7 +88,7 @@ $site-width-min: 90vw;
 
 	--button-border-radius: var(--border-radius);
 	--button-transition-duration: 0.25s;
-	--button-shadow: none; */
+	--button-shadow: none;
 
 	// Dialog
 /*	--dialog-background: white;
