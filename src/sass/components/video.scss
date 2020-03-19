@@ -18,9 +18,15 @@ $icon-play: "?" !default;
 
 // Video embed with thumbnail, caption and icon
 figure.video-embed {
+	margin: 0 0 var(--video-margin, var(--spacing-medium, 1rem));
+
 	.embed {
 		position: relative;
 		margin-bottom: var(--video-margin, var(--spacing-medium, 1rem));
+
+		.video {
+			margin: 0;
+		}
 
 		.thumbnail {
 			position: absolute;
