@@ -25,8 +25,6 @@ export default class Scrollspy {
 			th = ((window.innerHeight * this.config.threshold) / elHeight) * this.config.threshold;
 		}
 
-		console.log(th);
-
 		new IntersectionObserver(entries => entries.forEach(entry => this.config.callback(entry)), {threshold: th}).observe(this.el);
 	}
 }
