@@ -1,6 +1,6 @@
 [data-radial-progress] {
-	width: var(--radial-progress-width, 10rem);
-	height: var(--radial-progress-height, 10rem);
+	width: calc(var(--radial-progress-radius, 5rem) * 2);
+	height: calc(var(--radial-progress-radius, 5rem) * 2);
 	position: relative;
 
 	&::after {
