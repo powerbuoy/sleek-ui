@@ -38,7 +38,7 @@ export default class CountTo {
 				requestAnimationFrame(increaseCount);
 			}
 
-			this.el.innerHTML = this.config.prefix + currentVal.toLocaleString(this.config.locale, this.config.options) + this.config.suffix;
+			this.el.innerHTML = `${this.config.prefix}${currentVal.toLocaleString(this.config.locale, this.config.options)}${this.config.suffix}`;
 		};
 
 		new IntersectionObserver(entries => entries.forEach((entry) => {
