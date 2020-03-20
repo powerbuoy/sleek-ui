@@ -1,6 +1,6 @@
 'use strict';
 
-class RadialProgress {
+export default class RadialProgress {
 	constructor (el, value) {
 		this.el = el;
 		this.currentValue = value;
