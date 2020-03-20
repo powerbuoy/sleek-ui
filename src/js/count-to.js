@@ -1,5 +1,6 @@
 'use strict';
 
+// TODO: Deprecate? Use Animation class instead?
 export default class CountTo {
 	constructor (el, conf) {
 		this.el = el;
@@ -38,7 +39,7 @@ export default class CountTo {
 				requestAnimationFrame(increaseCount);
 			}
 
-			this.el.innerHTML = `${this.config.prefix}${currentVal.toLocaleString(this.config.locale, this.config.options)}${this.config.suffix}`;
+			this.el.innerHTML = this.config.prefix + currentVal.toLocaleString(this.config.locale, this.config.options) + this.config.suffix;
 		};
 
 		new IntersectionObserver(entries => entries.forEach((entry) => {

@@ -1,0 +1,48 @@
+[data-radial-progress] {
+	width: var(--radial-progress-width, 10rem);
+	height: var(--radial-progress-height, 10rem);
+	position: relative;
+
+	&::after {
+		// https://stackoverflow.com/questions/40164169/using-css-variables-custom-properties-in-a-pseudo-elements-content-propert
+		counter-reset: radial-progress var(--radial-progress-value);
+		content: attr(data-prefix) counter(radial-progress) attr(data-suffix);
+
+		display: block;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		transition: content 1s ease;
+	}
+
+	svg.radial-progress {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		transform: rotate(-90deg); // NOTE: Because circle stroke starts at 90deg for some reason
+
+		circle {
+			stroke-width: var(--radial-progress-stroke-width, 0.5rem);
+			stroke-linecap: round;
+			vector-effect: non-scaling-stroke;
+		}
+
+		circle.meter {
+			stroke: var(--radial-progress-meter-stroke, var(--color-lightgray, #eaeaea));
+		}
+
+		circle.value {
+			stroke: var(--radial-progress-value-stroke, var(--color-primary, blue));
+			stroke-dasharray: var(--radial-progress-value-length);
+			stroke-dashoffset: var(--radial-progress-value-offset);
+		}
+
+		&.loaded {
+			circle.value {
+				transition: stroke-dashoffset 1s ease;
+			}
+		}
+	}
+
+}
