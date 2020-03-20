@@ -8,6 +8,8 @@ export default class CountTo {
 			to: null,
 			duration: 2,
 			locale: 'en-US',
+			prefix: '',
+			suffix: '',
 			options: {
 				maximumFractionDigits: 0 // TODO: Should depend on whether input is int or float
 			}
@@ -36,7 +38,7 @@ export default class CountTo {
 				requestAnimationFrame(increaseCount);
 			}
 
-			this.el.innerText = currentVal.toLocaleString(this.config.locale, this.config.options);
+			this.el.innerHTML = this.config.prefix + currentVal.toLocaleString(this.config.locale, this.config.options) + this.config.suffix;
 		};
 
 		new IntersectionObserver(entries => entries.forEach((entry) => {
