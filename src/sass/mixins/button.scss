@@ -19,7 +19,7 @@
 	color: var(--button-text-color, white);
 
 	outline: 0;
-	border: 1px solid var(--button-color, var(--color-primary, blue));
+	border: var(--button-border-width, 1px) var(--button-border-style, solid) var(--button-color, var(--color-primary, blue));
 	border-radius: var(--button-border-radius, var(--border-radius, 0));
 
 	transition: all var(--button-transition-duration, 0.25s) ease;
