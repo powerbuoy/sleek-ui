@@ -37,8 +37,8 @@
 		vertical-align: middle;
 		position: relative;
 
-		width: var(--slideshow-bullets-size, 0.5rem);
-		height: var(--slideshow-bullets-size, 0.5rem);
+		width: var(--slideshow-bullets-size, 10px);
+		height: var(--slideshow-bullets-size, 10px);
 		margin: 0 var(--slideshow-bullets-margin, var(--spacing-x-small, 0.25rem));
 
 		font-size: 0;
