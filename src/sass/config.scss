@@ -116,6 +116,8 @@ $site-width-max: 90vw;
 	--form-field-line-height: var(--body-line-height);
 	--form-field-text-color: var(--text-color);
 
+	--form-field-border-width: 1px;
+	--form-field-border-style: solid;
 	--form-field-border-color: var(--color-border);
 	--form-field-border-radius: var(--border-radius);
 	--form-field-border-focus-color: var(--color-primary);

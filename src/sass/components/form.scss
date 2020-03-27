@@ -30,7 +30,7 @@ textarea {
 	color: var(--form-field-text-color, var(--text-color, inherit));
 
 	transition: all var(--form-field-transition-duration, 0.25s) ease;
-	border: var(--form-field-border-width, 1px) solid var(--form-field-border-color, var(--color-border, black));
+	border: var(--form-field-border-width, 1px) var(--form-field-border-style, solid) var(--form-field-border-color, var(--color-border, black));
 	border-radius: var(--form-field-border-radius, var(--border-radius, 0));
 
 	&:focus {
