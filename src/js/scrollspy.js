@@ -25,6 +25,10 @@ export default class Scrollspy {
 			th = ((window.innerHeight * this.config.threshold) / elHeight) * this.config.threshold;
 		}
 
-		new IntersectionObserver(entries => entries.forEach(entry => this.config.callback(entry)), {threshold: th}).observe(this.el);
+		new IntersectionObserver(
+			entries => entries.forEach(
+				entry => this.config.callback(entry)
+			), this.config // NOTE: We pass our entire config so that user's can set root and rootMargin as well. Passing invalid properties (this.config.callback) doesn't seem to be a problem.
+		).observe(this.el);
 	}
 }
