@@ -14,18 +14,18 @@
 @mixin ratio ($width: 16, $height: 9) {
 	$padding-bottom: percentage($height / $width);
 
-	&::before {
-		display: block;
-		content: "";
-		padding-bottom: $padding-bottom;
-	}
+	display: block;
+	content: "";
+	padding-bottom: $padding-bottom;
 }
 
 @mixin img-ratio ($width: 16, $height: 9) {
-	@include ratio($width, $height);
-
 	position: relative;
 	overflow: hidden;
+
+	&::before {
+		@include ratio($width, $height);
+	}
 
 	> img,
 	> :not(figcaption) img {
