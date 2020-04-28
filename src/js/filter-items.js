@@ -3,7 +3,7 @@
 export default class FilterItems {
 	constructor (form, items) {
 		this.form = form;
-		this.selects = this.form.querySelectorAll('select');
+		this.inputs = this.form.querySelectorAll('select, input[type="checkbox"], input[type="radio"]');
 		this.q = this.form.querySelector('[name="q"]');
 		this.items = items;
 	}
@@ -11,19 +11,22 @@ export default class FilterItems {
 	mount () {
 		this.filterItems();
 
-		this.selects.forEach(select => {
-			select.addEventListener('change', e => {
+		if (this.inputs.length) {
+			this.inputs.forEach(input => {
+				input.addEventListener('change', e => {
+					this.form.dispatchEvent(new Event('submit', {bubbles: true}));
+				});
+			});
+		}
+
+		if (this.q) {
+			this.q.addEventListener('input', e => {
 				this.form.dispatchEvent(new Event('submit', {bubbles: true}));
 			});
-		});
-
-		this.q.addEventListener('input', e => {
-			this.form.dispatchEvent(new Event('submit', {bubbles: true}));
-		});
+		}
 
 		this.form.addEventListener('submit', e => {
 			e.preventDefault();
-
 			this.filterItems();
 		});
 	}
@@ -32,17 +35,24 @@ export default class FilterItems {
 		// Show all items by default
 		this.items.forEach(el => el.classList.remove('filter-items--hidden'));
 
-		// Store all <select>-element values
+		// Store all input values
 		var classes = [];
 
-		this.selects.forEach(select => {
-			if (select.value.length) {
-				classes.push('.' + select.name + '-' + select.value);
+		this.inputs.forEach(input => {
+			if (input.nodeName === 'SELECT') {
+				if (input.value.length) {
+					classes.push('.' + input.name + '-' + input.value);
+				}
+			}
+			else {
+				if (input.checked) {
+					classes.push('.' + input.name + '-' + input.value);
+				}
 			}
 		});
 
 		// If we have either <select> values or a search string
-		if (classes.length || this.q.value.length) {
+		if (classes.length || (this.q && this.q.value.length)) {
 			// Hide all items
 			this.items.forEach(el => el.classList.add('filter-items--hidden'));
 
@@ -60,7 +70,7 @@ export default class FilterItems {
 				}
 
 				// Or q
-				if (this.q.value.length) {
+				if (this.q && this.q.value.length) {
 					isQMatch = new RegExp(this.q.value, 'im').test(item.innerHTML);
 				}
 				else {
