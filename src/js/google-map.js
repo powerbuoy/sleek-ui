@@ -237,8 +237,8 @@ export default class GoogleMap {
 			this.markerBounds.extend(gMarker.getPosition());
 		});
 
-		// Center on markers
-		if (this.markers.length) {
+		// Center on markers (unless specific center is asked for)
+		if (this.markers.length && !this.config.center) {
 			if (this.markers.length === 1) {
 				this.map.setCenter(this.markers[0].getPosition());
 			}
