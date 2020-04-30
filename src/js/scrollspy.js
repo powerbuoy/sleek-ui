@@ -23,6 +23,8 @@ export default class Scrollspy {
 		// The element is too tall to ever hit the threshold - change threshold
 		if (elHeight > (window.innerHeight * this.config.threshold)) {
 			th = ((window.innerHeight * this.config.threshold) / elHeight) * this.config.threshold;
+
+			this.config.threshold = th;
 		}
 
 		new IntersectionObserver(
