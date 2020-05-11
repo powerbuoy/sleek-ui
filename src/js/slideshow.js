@@ -96,7 +96,7 @@ export default class Slideshow {
 		if (this.el.children.length) {
 			//////////////////////////////
 			// Use --slideshow-gap for gap
-			if (!this.config.gap) {
+			if (typeof this.config.gap === 'undefined') {
 				const gap = (parseFloat(window.getComputedStyle(this.el).getPropertyValue('--slideshow-gap')) * 16); // NOTE: Assume rem use
 
 				this.config.gap = isNaN(gap) ? 32 : gap;
