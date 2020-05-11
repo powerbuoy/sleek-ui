@@ -31,51 +31,24 @@
 	text-align: center;
 
 	a {
-		background: transparent;
+		background: currentColor;
 
 		display: inline-block;
 		vertical-align: middle;
 		position: relative;
 
-		width: var(--slideshow-bullets-size, 10px);
-		height: var(--slideshow-bullets-size, 10px);
+		width: var(--slideshow-bullets-size, 12px);
+		height: var(--slideshow-bullets-size, 12px);
 		margin: 0 var(--slideshow-bullets-margin, var(--spacing-x-small, 0.25rem));
 
 		font-size: 0;
 		border-radius: 50%;
 
-		transition: background 0.5s ease;
-
-		&::before,
-		&::after {
-			display: block;
-			content: "";
-
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%) scale(1);
-
-			width: 100%;
-			height: 100%;
-
-			border: 1px solid currentColor;
-			border-radius: 50%;
-		}
-
-		&::after {
-			width: 200%;
-			height: 200%;
-			transform: translate(-50%, -50%) scale(0.5);
-			transition: transform 0.5s ease;
-		}
+		opacity: 0.5;
+		transition: all 0.5s ease;
 	}
 
 	.glide__bullet--active {
-		background: currentColor;
-
-		&::after {
-			transform: translate(-50%, -50%) scale(1);
-		}
+		opacity: 1;
 	}
 }

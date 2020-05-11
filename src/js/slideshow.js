@@ -85,7 +85,9 @@ export default class Slideshow {
 			perView: 1,
 			focusAt: 'center',
 			animationDuration: 800,
-			autoplay: 6000
+			autoplay: 6000,
+			beforeBullets: '',
+			afterBullets: ''
 		}, conf);
 
 		this.init();
@@ -131,7 +133,7 @@ export default class Slideshow {
 			nav.classList.add('slideshow-bullets');
 			nav.setAttribute('data-glide-el', 'controls[nav]');
 
-			let bullets = '';
+			let bullets = this.config.beforeBullets;
 
 			// Add classes to existing markup
 			[...this.el.children].forEach((child, index) => {
@@ -141,7 +143,7 @@ export default class Slideshow {
 				slidesEl.appendChild(child);
 			});
 
-			nav.innerHTML = bullets;
+			nav.innerHTML = bullets + this.config.afterBullets;
 
 			/////////////////////////////////
 			// Now move everything into place
