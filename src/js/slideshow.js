@@ -143,12 +143,19 @@ export default class Slideshow {
 
 			nav.innerHTML = bullets;
 
+			// Create wrapper
+			const controls = document.createElement('nav');
+
+			controls.classList.add('slideshow-controls');
+
+			controls.appendChild(buttons);
+			controls.appendChild(nav);
+
 			/////////////////////////////////
 			// Now move everything into place
 			trackEl.appendChild(slidesEl);
 			this.el.appendChild(trackEl);
-			this.el.appendChild(buttons);
-			this.el.appendChild(nav);
+			this.el.appendChild(controls);
 
 			////////////////
 			// Create slider
