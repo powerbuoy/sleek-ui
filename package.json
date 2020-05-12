@@ -1,0 +1,23 @@
+{
+  "name": "sleek-ui",
+  "version": "1.0.0",
+  "description": "Lightweight SASS and JS library for common UI elements",
+  "main": "dist/sleek-ui.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/powerbuoy/sleek-ui.git"
+  },
+  "author": "Andreas Lagerkvist",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/powerbuoy/sleek-ui/issues"
+  },
+  "homepage": "https://github.com/powerbuoy/sleek-ui#readme",
+  "dependencies": {
+    "@glidejs/glide": "^3.4.1",
+    "normalize.css": "^8.0.1"
+  }
+}
