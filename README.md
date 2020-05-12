@@ -1,3 +1,3 @@
 # Sleek UI
 
-Lightweight SASS and JS library for common UI elements
+Lightweight SASS and JS library for common UI elements.
