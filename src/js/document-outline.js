@@ -33,7 +33,7 @@ export default class DocumentOutline {
 
 			const nextHeadings = this.nextUntil(el, 'h' + level, 'h' + (level + 1));
 
-			if (nextHeadings) {
+			if (nextHeadings.length) {
 				html += this.generate(nextHeadings, i);
 			}
 
