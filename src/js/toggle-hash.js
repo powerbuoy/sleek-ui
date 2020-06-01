@@ -20,6 +20,7 @@ export default class ToggleHash {
 
 		this.el.addEventListener('click', e => {
 			e.preventDefault();
+			e.stopPropagation();
 
 			this.toggleHash();
 		});
