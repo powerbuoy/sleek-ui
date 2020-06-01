@@ -6,10 +6,7 @@ export default class ToggleHash {
 		this.config = Object.assign({
 			hash: this.el.getAttribute('href'),
 			defaultText: this.el.innerText,
-			toggleText: this.el.innerText,
-			onAdd: hash => {
-				document.documentElement.classList.add('hash-active', 'hash-active-' + hash.substr(1));
-			}
+			toggleText: this.el.innerText
 		}, conf);
 	}
 
