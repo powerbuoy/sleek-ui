@@ -26,13 +26,17 @@
 		width: 100%;
 		height: var(--burger-menu-thickness, 2px);
 
-		transition: top var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) ease, transform var(--burger-menu-transition-duration, 0.25s) ease;
+		transition: top var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) ease,
+					transform var(--burger-menu-transition-duration, 0.25s) ease,
+					background var(--burger-menu-transition-duration, 0.25s) ease;
 	}
 
 	&::after {
 		top: auto;
 		bottom: 0;
-		transition: bottom var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) ease, transform var(--burger-menu-transition-duration, 0.25s) ease;
+		transition: bottom var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) ease,
+					transform var(--burger-menu-transition-duration, 0.25s) ease,
+					background var(--burger-menu-transition-duration, 0.25s) ease;
 	}
 }
 
@@ -52,13 +56,17 @@
 	&::before {
 		top: calc(50% - (var(--burger-menu-thickness, 2px) / 2));
 		transform: rotate(45deg);
-		transition: top var(--burger-menu-transition-duration, 0.25s) ease, transform var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) ease;
+		transition: top var(--burger-menu-transition-duration, 0.25s) ease,
+					transform var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) ease,
+					background var(--burger-menu-transition-duration, 0.25s) ease;
 	}
 
 	&::after {
 		bottom: calc(50% - (var(--burger-menu-thickness, 2px) / 2));
 		transform: rotate(-45deg);
-		transition: bottom var(--burger-menu-transition-duration, 0.25s) ease, transform var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) ease;
+		transition: bottom var(--burger-menu-transition-duration, 0.25s) ease,
+					transform var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) ease,
+					background var(--burger-menu-transition-duration, 0.25s) ease;
 	}
 }
 
