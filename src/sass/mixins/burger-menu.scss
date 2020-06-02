@@ -41,6 +41,8 @@
 	transition: background-position 0.25s ease;
 
 	@if ($color) {
+		background-image: linear-gradient(to right, transparent, transparent calc(100% - var(--burger-menu-middle-width, 100%)), $color calc(100% - var(--burger-menu-middle-width, 100%)));
+
 		&:before,
 		&:after {
 			background: $color;
