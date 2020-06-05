@@ -5,21 +5,25 @@ $site-width-max: 90vw !default;
 
 ///////////////
 // Site padding
-@mixin site-padding ($width: $site-width, $var-name: --site-padding) {
+@function calc-reached ($width, $width-max) {
 	// Remove units from width (px) and width-min (% / vw)
 	// https://css-tricks.com/snippets/sass/strip-unit-function/
 	$width-no-unit: $width / ($width * 0 + 1);
-	$width-min-no-unit: $site-width-max / ($site-width-max * 0 + 1);
+	$width-max-no-unit: $width-max / ($width-max * 0 + 1);
 
 	// Window width in px when $site-width is fully reached
-	$reached: #{($width-no-unit / $width-min-no-unit) * 100px};
+	$reached: #{($width-no-unit / $width-max-no-unit) * 100px};
 
+	@return $reached;
+}
+
+@mixin site-padding ($width: $site-width, $var-name: --site-padding) {
 	// Set site padding to (100% - 90%) / 2 (5% on each side)
 	#{$var-name}: #{(100vw - $site-width-max) / 2};
 
 	// When resolution is wide enough to fit entire site width
 	// set it to (100% - 980px) / 2 (110px on each side in a 1200x800 window)
-	@media (min-width: #{$reached}) {
+	@media (min-width: calc-reached($width, $site-width-max)) {
 		#{$var-name}: calc((100vw - #{$width}) / 2);
 	}
 }
