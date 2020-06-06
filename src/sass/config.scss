@@ -106,6 +106,9 @@ $site-width-max: 90vw;
 
 	// Form
 /*	--form-field-bg: white;
+	--form-field-focus-bg: var(--form-field-bg);
+	--form-field-hover-bg: var(--form-field-bg);
+
 	--form-field-padding-vertical: 0.75rem;
 	--form-field-padding-horizontal: 1.25rem;
 
@@ -118,9 +121,10 @@ $site-width-max: 90vw;
 
 	--form-field-border-width: 1px;
 	--form-field-border-style: solid;
-	--form-field-border-color: var(--color-border);
 	--form-field-border-radius: var(--border-radius);
-	--form-field-border-focus-color: var(--color-primary);
+	--form-field-border-color: var(--color-border);
+	--form-field-hover-border-color: var(--form-field-border-color);
+	--form-field-focus-border-color: var(--color-primary);
 
 	--select-arrow-size: 0.5rem;
 	--placeholder-color: var(--color-gray, #999); */
