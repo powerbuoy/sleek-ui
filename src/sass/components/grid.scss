@@ -1,7 +1,6 @@
 $num-cols: 6 !default;
 
-.grid,
-[class*="grid--"] {
+.grid {
 	@include grid(1);
 }
 
@@ -12,6 +11,10 @@ $num-cols: 6 !default;
 }
 
 @media (--tablet) {
+	[class*="tablet:grid--"] {
+		@include grid(1);
+	}
+
 	@for $i from 2 through $num-cols {
 		.tablet\:grid--#{$i} {
 			--grid-cols: #{$i};
@@ -20,6 +23,10 @@ $num-cols: 6 !default;
 }
 
 @media (--laptop) {
+	[class*="laptop:grid--"] {
+		@include grid(1);
+	}
+
 	@for $i from 2 through $num-cols {
 		.laptop\:grid--#{$i} {
 			--grid-cols: #{$i};
