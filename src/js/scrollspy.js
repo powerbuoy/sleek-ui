@@ -4,7 +4,7 @@ export default class Scrollspy {
 	constructor (el, conf) {
 		this.el = el;
 		this.config = Object.assign({
-			rootMargin: '0% 0% 50%',
+			rootMargin: '0% 0% -25%',
 			callback: (entry) => {
 				if (entry.isIntersecting) {
 					entry.target.classList.add('in-view', 'was-in-view');
