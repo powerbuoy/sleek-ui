@@ -2,7 +2,7 @@
 :--form-field,
 select,
 textarea {
-	background: var(--form-field-bg, white);
+	background-color: var(--form-field-bg, white);
 
 	appearance: none;
 	outline: 0;
@@ -37,12 +37,12 @@ textarea {
 	border-radius: var(--form-field-border-radius, var(--border-radius, 0));
 
 	&:hover {
-		background: var(--form-field-hover-bg, var(--form-field-bg, white));
+		background-color: var(--form-field-hover-bg, var(--form-field-bg, white));
 		border-color: var(--form-field-hover-border-color, var(--color-primary, blue));
 	}
 
 	&:focus {
-		background: var(--form-field-focus-bg, var(--form-field-bg, white));
+		background-color: var(--form-field-focus-bg, var(--form-field-bg, white));
 		border-color: var(--form-field-focus-border-color, var(--color-primary, blue));
 		outline: 0;
 	}
