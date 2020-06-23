@@ -1,54 +1,71 @@
-// Set the slideshow-gap which is used by the JS
 [data-slideshow] {
-	--slideshow-gap: var(--grid-gap, 3rem);
-}
-
-// Allow positioning stuff outside slideshow
-.glide {
-	position: static;
-}
-
-// Allow showing stuff outside slides
-.glide__slides {
-	overflow: visible;
-}
-
-// Slideshow with slides visible outside
-.slideshow--bleed {
-	.glide__track {
-		overflow: visible;
-	}
-}
-
-// Prev / next buttons
-.slideshow-nav {
-
-}
-
-// Bullet navigation
-.slideshow-bullets {
-	margin-top: var(--slideshow-bullets-margin-top, var(--spacing-medium, 1rem));
-	text-align: center;
-
-	a {
-		background: currentColor;
-
-		display: inline-block;
-		vertical-align: middle;
-		position: relative;
-
-		width: var(--slideshow-bullets-size, 12px);
-		height: var(--slideshow-bullets-size, 12px);
-		margin: 0 var(--slideshow-bullets-margin, var(--spacing-x-small, 0.25rem));
-
-		font-size: 0;
-		border-radius: 50%;
-
-		opacity: 0.5;
-		transition: all 0.5s ease;
+	.flickity-viewport {
+		transition: height 0.2s ease;
 	}
 
-	.glide__bullet--active {
-		opacity: 1;
+	.flickity-prev-next-button {
+		background: none;
+
+		width: var(--slideshow-arrow-size);
+		height: var(--slideshow-arrow-size);
+
+		margin: 0;
+		padding: 0;
+
+		font-size: 100%;
+		line-height: 1;
+		color: var(--text-color);
+
+		border-radius: 0;
+		box-shadow: none;
+		transform: scale(1);
+
+		.flickity-button-icon {
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.flickity-page-dots {
+		position: static;
+		display: block;
+
+		.dot {
+			background: transparent;
+
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+
+			width: var(--slideshow-bullet-size);
+			height: var(--slideshow-bullet-size);
+			margin: 0 var(--spacing-x-small);
+
+			color: var(--slideshow-bullet-color);
+
+			border-radius: 50%;
+			border: 1px solid transparent;
+
+			opacity: 1;
+			transition: border-color .2s;
+
+			&::before {
+				content: '';
+
+				display: block;
+
+				width: var(--slideshow-bullet-inner-size, calc(var(--slideshow-bullet-size) * 0.2));
+				height: var(--slideshow-bullet-inner-size, calc(var(--slideshow-bullet-size) * 0.2));
+
+				border-radius: 50%;
+				background: currentColor;
+			}
+
+			&.is-selected {
+				border-color: currentColor;
+			}
+		}
 	}
 }
