@@ -1,70 +1,64 @@
 [data-slideshow] {
+	// If using adaptiveHeight: true
 	.flickity-viewport {
 		transition: height 0.2s ease;
 	}
 
+	// Slide width
+	.flickity-slider > * {
+		width: calc(100% / var(--slideshow-per-page, 1) - var(--slideshow-gap, 3rem) * (var(--slideshow-per-page, 1) - 1) / var(--slideshow-per-page, 1));
+		margin-right: var(--slideshow-gap, 3rem);
+	}
+
+	// Prev / next buttons
 	.flickity-prev-next-button {
-		background: none;
+		all: unset; // Remove button styling as well as flickity's styling
+		cursor: pointer;
 
-		width: var(--slideshow-arrow-size);
-		height: var(--slideshow-arrow-size);
+		width: var(--slideshow-arrow-size, 2rem);
+		height: var(--slideshow-arrow-size, 2rem);
 
-		margin: 0;
-		padding: 0;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translate(calc((100% + var(--spacing-large, 3rem)) * -1), -50%);
 
-		font-size: 100%;
-		line-height: 1;
-		color: var(--text-color);
+		// Hide in low res as they won't fit
+		@media (--tablet-max) {
+			display: none;
+		}
 
-		border-radius: 0;
-		box-shadow: none;
-		transform: scale(1);
+		&.next {
+			left: auto;
+			right: 0;
+			transform: translate(calc(100% + var(--spacing-large, 3rem)), -50%);
+		}
 
-		.flickity-button-icon {
-			top: 0;
+		svg {
+			position: absolute;
 			left: 0;
+			top: 0;
 			width: 100%;
 			height: 100%;
 		}
 	}
 
+	// Bullets
 	.flickity-page-dots {
-		position: static;
+		all: unset;
+
 		display: block;
+		text-align: center;
+		margin-top: var(--slideshow-bullet-margin, var(--spacing-large, 3rem));
 
 		.dot {
-			background: transparent;
-
-			display: inline-flex;
-			justify-content: center;
-			align-items: center;
-
-			width: var(--slideshow-bullet-size);
-			height: var(--slideshow-bullet-size);
-			margin: 0 var(--spacing-x-small);
-
-			color: var(--slideshow-bullet-color);
-
-			border-radius: 50%;
-			border: 1px solid transparent;
-
-			opacity: 1;
-			transition: border-color .2s;
-
-			&::before {
-				content: '';
-
-				display: block;
-
-				width: var(--slideshow-bullet-inner-size, calc(var(--slideshow-bullet-size) * 0.2));
-				height: var(--slideshow-bullet-inner-size, calc(var(--slideshow-bullet-size) * 0.2));
-
-				border-radius: 50%;
-				background: currentColor;
-			}
+			background: var(--slideshow-bullet-color, #999);
+			width: var(--slideshow-bullet-size, 0.5rem);
+			height: var(--slideshow-bullet-size, 0.5rem);
+			transition: background-color 0.2s ease;
 
 			&.is-selected {
-				border-color: currentColor;
+				background: var(--slideshow-bullet-color-active, var(--color-primary, #f90));
 			}
 		}
 	}
