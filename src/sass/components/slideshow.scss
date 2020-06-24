@@ -24,7 +24,7 @@
 		transform: translate(calc((100% + var(--spacing-large, 3rem)) * -1), -50%);
 
 		// Hide in low res as they won't fit
-		@media (--tablet-max) {
+		@media (--laptop-max) {
 			display: none;
 		}
 
