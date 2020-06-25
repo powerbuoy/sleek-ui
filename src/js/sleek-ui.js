@@ -11,3 +11,4 @@ export { default as Scrollspy } from './scrollspy.js';
 export { default as Slideshow } from './slideshow.js';
 export { default as SubmitOnchange } from './submit-onchange.js';
 export { default as ToggleHash } from './toggle-hash.js';
+export { default as VideoEmbed } from './video-embed.js';

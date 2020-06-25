@@ -1,4 +1,15 @@
 $icon-play: "?" !default;
+$icon-spinner: "!" !default;
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
 
 // Responsive video
 .video {
@@ -50,7 +61,8 @@ figure.video-embed {
 				color: white;
 			}
 
-			img {
+			> img,
+			> picture {
 				@include img-background;
 
 				z-index: 1;
@@ -63,6 +75,17 @@ figure.video-embed {
 		.embed {
 			.thumbnail {
 				display: none;
+			}
+		}
+	}
+
+	&.video-embed--state-buffering {
+		.embed {
+			.thumbnail {
+				&::after {
+					content: $icon-spinner;
+					animation: spin 2s infinite linear;
+				}
 			}
 		}
 	}
