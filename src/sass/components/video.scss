@@ -1,13 +1,13 @@
 $icon-play: "?" !default;
 $icon-spinner: "!" !default;
 
-@keyframes spin {
+@keyframes spin-video-overlay-icon {
 	0% {
-		transform: rotate(0deg);
+		transform: rotate(0deg) translate(-50%, -50%);
 	}
 
 	100% {
-		transform: rotate(360deg);
+		transform: rotate(360deg) translate(-50%, -50%);
 	}
 }
 
@@ -84,7 +84,7 @@ figure.video-embed {
 			.thumbnail {
 				&::after {
 					content: $icon-spinner;
-					animation: spin 2s infinite linear;
+					animation: spin-video-overlay-icon 2s infinite linear;
 				}
 			}
 		}
