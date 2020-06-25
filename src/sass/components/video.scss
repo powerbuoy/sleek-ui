@@ -3,11 +3,11 @@ $icon-spinner: "!" !default;
 
 @keyframes spin-video-overlay-icon {
 	0% {
-		transform: rotate(0deg) translate(-50%, -50%);
+		transform: rotate(0deg);
 	}
 
 	100% {
-		transform: rotate(360deg) translate(-50%, -50%);
+		transform: rotate(360deg);
 	}
 }
 
@@ -49,14 +49,17 @@ figure.video-embed {
 			&::after {
 				@include icon($icon-play);
 
+				display: block;
 				margin: 0;
 
 				position: absolute;
 				left: 50%;
 				top: 50%;
-				transform: translate(-50%, -50%);
 				z-index: 3;
 
+				width: 3rem;
+				height: 3rem;
+				margin: -1.5rem 0 0 -1.5rem;
 				font-size: 3rem;
 				color: white;
 			}
