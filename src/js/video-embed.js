@@ -1,9 +1,12 @@
 'use strict';
 
 export default class VideoEmbed {
-	constructor (el, data) {
+	constructor (el, data, config) {
 		this.el = el;
 		this.data = data;
+		this.config = Object.assign({
+			api: true
+		}, config);
 		this.ytPlayStates = {
 			'??': 'unknown',
 			'-1': 'unstarted',
@@ -18,21 +21,30 @@ export default class VideoEmbed {
 	mount () {
 		this.buildHTML();
 
-		if (this.data.provider_name === 'YouTube') {
-			const old = window.onYouTubeIframeAPIReady;
+		if (this.config.api) {
+			if (this.el.dataset.src) {
+				this.el.setAttribute('src', this.el.dataset.src);
+			}
 
-			window.onYouTubeIframeAPIReady = () => {
-				if (old) {
-					old();
-				}
+			if (this.data.provider_name === 'YouTube') {
+				const old = window.onYouTubeIframeAPIReady;
 
-				this.initYouTube();
-			};
+				window.onYouTubeIframeAPIReady = () => {
+					if (old) {
+						old();
+					}
 
-			this.addScript('https://www.youtube.com/iframe_api');
+					this.initYouTube();
+				};
+
+				this.addScript('https://www.youtube.com/iframe_api');
+			}
+			else if (this.data.provider_name === 'Vimeo') {
+				this.addScript('https://player.vimeo.com/api/player.js').then(() => this.initVimeo());
+			}
 		}
-		else if (this.data.provider_name === 'Vimeo') {
-			this.addScript('https://player.vimeo.com/api/player.js').then(() => this.initVimeo());
+		else {
+
 		}
 	}
 
@@ -168,6 +180,17 @@ export default class VideoEmbed {
 			else {
 				resolve(existingScript);
 			}
+		});
+	}
+
+	toggleSrc () {
+		const src = this.el.dataset.src || this.el.getAttribute('src');
+
+		this.el.removeAttribute('src');
+
+		this.thumbnailEl.addEventListener('click', e => {
+			this.el.setAttribute('src', src + '&autoplay=true');
+			this.wrapEl.classList.add('video-embed--state-playing');
 		});
 	}
 }
