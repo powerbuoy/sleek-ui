@@ -5,6 +5,10 @@
 	box-sizing: border-box;
 }
 
+::selection {
+	background-color: var(--color-primary, initial);
+}
+
 html {
 	background: var(--body-bg, white);
 	font-size: 100%;
