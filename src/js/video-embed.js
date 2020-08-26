@@ -44,7 +44,7 @@ export default class VideoEmbed {
 			}
 		}
 		else {
-
+			this.toggleSrc();
 		}
 	}
 
