@@ -21,7 +21,6 @@
 
 @mixin img-ratio ($width: 16, $height: 9) {
 	position: relative;
-	overflow: hidden;
 
 	&::before {
 		@include ratio($width, $height);
