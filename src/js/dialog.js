@@ -7,7 +7,7 @@ export class DialogTrigger {
 			target: document.getElementById(this.el.getAttribute('href').substr(1)),
 			templateDialog: null
 		}, conf);
-		this.openEvent = new CustomEvent('sleek-ui-dialog-trigger-open', {
+		this.openEvent = new CustomEvent('sleek-ui/dialog/trigger-open', {
 			bubbles: true,
 			detail: {
 				dialog: this.config.target,
@@ -50,13 +50,13 @@ export default class Dialog {
 	constructor (el, conf) {
 		this.el = el;
 		this.config = Object.assign({}, conf);
-		this.openEvent = new CustomEvent('sleek-ui-dialog-open', {
+		this.openEvent = new CustomEvent('sleek-ui/dialog/open', {
 			bubbles: true,
 			detail: {
 				dialog: this.el
 			}
 		});
-		this.closeEvent = new CustomEvent('sleek-ui-dialog-close', {
+		this.closeEvent = new CustomEvent('sleek-ui/dialog/close', {
 			bubbles: true,
 			detail: {
 				dialog: this.el
