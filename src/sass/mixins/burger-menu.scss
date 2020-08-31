@@ -41,7 +41,7 @@
 }
 
 @mixin burger-menu-open ($color: false) {
-	background-position: var(--burger-menu-size, 24px) 50%;
+	background-position: calc(var(--burger-menu-size, 24px) * 1.5) 50%; // NOTE: * 1.5 because of rounding errors sometimes which cause the middle line to show 1px
 	transition: background var(--burger-menu-transition-duration, 0.25s) ease;
 
 	@if ($color) {
