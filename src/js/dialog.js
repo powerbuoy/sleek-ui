@@ -4,8 +4,9 @@ export class DialogTrigger {
 	constructor (el, conf) {
 		this.el = el;
 		this.config = Object.assign({
-			target: document.getElementById(this.el.getAttribute('href').substr(1)),
-			templateDialog: null
+			target: this.el.getAttribute('href') ? document.getElementById(this.el.getAttribute('href').substr(1)) : null,
+			templateDialog: null,
+			preventDefault: true
 		}, conf);
 		this.openEvent = new CustomEvent('sleek-ui/dialog/trigger-open', {
 			bubbles: true,
@@ -17,32 +18,36 @@ export class DialogTrigger {
 	}
 
 	mount () {
-		this.el.addEventListener('click', e => {
-			e.preventDefault();
-
-			this.el.dispatchEvent(this.openEvent);
-
-			// The target is a template
-			if (this.config.target.nodeName.toLowerCase() === 'script') {
-				if (this.config.templateDialog) {
-					this.config.templateDialog.className = 'dialog dialog--no-transition ' + this.config.target.className;
-					this.config.templateDialog.innerHTML = this.config.target.innerHTML + '<a class="dialog__close">&times;</a>';
-
-					// HACK: Wait for dialog--no-transition to kick in (for some reason I need around 50ms...)
-					setTimeout(() => {
-						this.config.templateDialog.classList.remove('dialog--no-transition');
-						this.config.templateDialog.sleekDialog.open();
-					}, 50);
+		if (this.config.target) {
+			this.el.addEventListener('click', e => {
+				if (this.config.preventDefault) {
+					e.preventDefault();
 				}
+
+				this.el.dispatchEvent(this.openEvent);
+
+				// The target is a template
+				if (this.config.target.nodeName.toLowerCase() === 'script') {
+					if (this.config.templateDialog) {
+						this.config.templateDialog.className = 'dialog dialog--no-transition ' + this.config.target.className;
+						this.config.templateDialog.innerHTML = this.config.target.innerHTML + '<a class="dialog__close">&times;</a>';
+
+						// HACK: Wait for dialog--no-transition to kick in (for some reason I need around 50ms...)
+						setTimeout(() => {
+							this.config.templateDialog.classList.remove('dialog--no-transition');
+							this.config.templateDialog.sleekDialog.open();
+						}, 50);
+					}
+					else {
+						console.error('DialogTrigger points to a script but no template dialog is specified');
+					}
+				}
+				// The target is a dialog element
 				else {
-					console.error('DialogTrigger points to a script but no template dialog is specified');
+					this.config.target.sleekDialog.open();
 				}
-			}
-			// The target is a dialog element
-			else {
-				this.config.target.sleekDialog.open();
-			}
-		});
+			});
+		}
 	}
 }
 
