@@ -1,0 +1,35 @@
+/////////////
+// Site width
+@mixin site-width ($min: false, $max: false) {
+	@if ($min) {
+		--site-width-min: #{$min};
+	}
+	@if ($max) {
+		--site-width-max: #{$max};
+	}
+
+	--site-width: min(var(--site-width-min), var(--site-width-max));
+	--site-padding: calc((100vw - var(--site-width)) / 2);
+}
+
+:root {
+	@include site-width;
+}
+
+///////////////////
+// Custom selectors
+@custom-selector :--heading h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6;
+@custom-selector :--form-field input[type=text], input[type=password], input[type=search], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=date], input[type=month], input[type=week], input[type=time], input[type=datetime], input[type=datetime-local]; //, input[type=color]
+
+// Mixins
+@import "mixins/auto-icons";
+@import "mixins/burger-menu";
+@import "mixins/button";
+@import "mixins/container";
+@import "mixins/grid";
+@import "mixins/icon";
+@import "mixins/img";
+@import "mixins/list";
+@import "mixins/section";
+@import "mixins/typography";
+@import "mixins/utils";
