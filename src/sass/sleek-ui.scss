@@ -1,35 +1,19 @@
-/////////
-// Config
-$site-width: 1080px !default;
-$site-width-max: 90vw !default;
-
-///////////////
-// Site padding
-@function calc-reached ($width, $width-max) {
-	// Remove units from width (px) and width-min (% / vw)
-	// https://css-tricks.com/snippets/sass/strip-unit-function/
-	$width-no-unit: $width / ($width * 0 + 1);
-	$width-max-no-unit: $width-max / ($width-max * 0 + 1);
-
-	// Window width in px when $site-width is fully reached
-	$reached: #{($width-no-unit / $width-max-no-unit) * 100px};
-
-	@return $reached;
-}
-
-@mixin site-padding ($width: $site-width, $var-name: --site-padding) {
-	// Set site padding to (100% - 90%) / 2 (5% on each side)
-	#{$var-name}: #{(100vw - $site-width-max) / 2};
-
-	// When resolution is wide enough to fit entire site width
-	// set it to (100% - 980px) / 2 (110px on each side in a 1200x800 window)
-	@media (min-width: calc-reached($width, $site-width-max)) {
-		#{$var-name}: calc((100vw - #{$width}) / 2);
+/////////////
+// Site width
+@mixin site-width ($min: false, $max: false) {
+	@if ($min) {
+		--site-width-min: #{$min};
 	}
+	@if ($max) {
+		--site-width-max: #{$max};
+	}
+
+	--site-width: min(var(--site-width-min), var(--site-width-max));
+	--site-padding: calc((100vw - var(--site-width)) / 2);
 }
 
 :root {
-	@include site-padding;
+	@include site-width;
 }
 
 ///////////////////
@@ -61,7 +45,6 @@ $site-width-max: 90vw !default;
 @import "components/form";
 @import "components/google-map";
 @import "components/grid";
-@import "components/radial-progress";
 @import "components/section";
 @import "components/slideshow";
 @import "components/video";

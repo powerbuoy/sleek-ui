@@ -1,5 +1,6 @@
-@mixin container ($width: $site-width) {
-	width: $site-width-max;
-	max-width: $width;
+@mixin container ($max: false, $min: false) {
+	@include site-width($min, $max);
+
+	width: var(--site-width);
 	margin: var(--container-margin, var(--spacing-x-large, 6rem)) auto;
 }
