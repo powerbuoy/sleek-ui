@@ -45,7 +45,7 @@ export default class FilterItems {
 				}
 			}
 			else {
-				if (input.checked) {
+				if (input.checked && input.value.length) {
 					classes.push('.' + input.name + '-' + input.value);
 				}
 			}
