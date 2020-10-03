@@ -14,6 +14,7 @@
 @mixin ratio ($width: 16, $height: 9) {
 	$padding-bottom: percentage($height / $width);
 
+	pointer-events: none;
 	display: block;
 	content: "";
 	padding-bottom: $padding-bottom;
