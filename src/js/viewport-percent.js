@@ -23,7 +23,7 @@ export default class ViewportPercent {
 			requestAnimationFrame(() => {
 				this.calculate();
 			});
-		});
+		}, {passive: true});
 
 		// Re-calculate percentage on scroll
 		window.addEventListener('scroll', () => {
@@ -32,7 +32,7 @@ export default class ViewportPercent {
 			requestAnimationFrame(() => {
 				this.calculate();
 			});
-		});
+		}, {passive: true});
 	}
 
 	calculate () {

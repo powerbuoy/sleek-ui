@@ -15,7 +15,7 @@ export default class ScrollStats {
 
 		window.addEventListener('scroll', e => {
 			this.setScrollStats();
-		});
+		}, {passive: true});
 	}
 
 	setScrollStats () {
