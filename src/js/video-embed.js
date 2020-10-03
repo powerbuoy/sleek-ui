@@ -66,8 +66,10 @@ export default class VideoEmbed {
 		}
 
 		// Title
-		const titleEl = document.createElement('figcaption');
-		titleEl.innerHTML = this.data.title || 'Untitled';
+		if (this.data.title) {
+			const titleEl = document.createElement('figcaption');
+			titleEl.innerHTML = this.data.title;
+		}
 
 		// The iframe is already wrapped in a div.video
 		if (this.el.parentNode.matches('div.video')) {
@@ -87,9 +89,13 @@ export default class VideoEmbed {
 
 		embedEl.appendChild(this.thumbnailEl);
 		this.wrapEl.appendChild(embedEl);
-		this.wrapEl.appendChild(titleEl);
+
+		if (this.data.title) {
+			this.wrapEl.appendChild(titleEl);
+		}
 	}
 
+	// TODO: Should take provider_name, youttubeId, thumbnail_url as arguments and not rely on dataset.youtubeId
 	buildThumbnailHTML () {
 		// ♥️ Simon
 		if (this.data.provider_name === 'YouTube' && this.el.dataset.youtubeId) {
