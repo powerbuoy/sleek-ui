@@ -22,6 +22,13 @@ div.dialog {
 	padding: var(--dialog-padding, var(--spacing-large, 3rem));
 	box-shadow: var(--dialog-shadow, var(--shadow-large, 0 1rem 1rem rgba(0, 0, 0, .25)));
 
+	// When closed
+	pointer-events: none;
+	opacity: 0;
+	transform: translate(-50%, -50%) scale(0.9);
+	transition: opacity var(--dialog-animation-duration, 0.5s) ease, transform var(--dialog-animation-duration, 0.5s) ease;
+
+	// Close button
 	.dialog__close {
 		position: absolute;
 		right: var(--spacing-medium, 1rem);
@@ -35,28 +42,21 @@ div.dialog {
 // Backdrop
 div.dialog + div.backdrop {
 	background: var(--dialog-backdrop-color, var(--color-overlay, rgba(0, 0, 0, .6)));
+
 	position: fixed;
 	left: 0;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	z-index: 100;
-}
 
-// Animations
-div.dialog {
-	pointer-events: none;
-	opacity: 0;
-	transform: translate(-50%, -50%) scale(0.9);
-	transition: opacity var(--dialog-animation-duration, 0.5s) ease, transform var(--dialog-animation-duration, 0.5s) ease;
-}
-
-div.dialog + div.backdrop {
+	// When closed
 	pointer-events: none;
 	opacity: 0;
 	transition: opacity var(--dialog-animation-duration, 0.5s) ease;
 }
 
+// When open
 div.dialog.open,
 html.no-js div.dialog:target {
 	pointer-events: all;
