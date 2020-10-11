@@ -49,12 +49,14 @@ export default class VideoEmbed {
 	}
 
 	buildHTML () {
+		let embedEl, videoEl, titleEl;
+
 		// Wrapper
 		this.wrapEl = document.createElement('figure');
 		this.wrapEl.classList.add('video-embed', 'video-embed--' + this.data.provider_name);
 
 		// Video/Image wrapper
-		const embedEl = document.createElement('div');
+		embedEl = document.createElement('div');
 		embedEl.classList.add('embed');
 
 		// Image wrapper
@@ -67,7 +69,7 @@ export default class VideoEmbed {
 
 		// Title
 		if (this.data.title) {
-			const titleEl = document.createElement('figcaption');
+			titleEl = document.createElement('figcaption');
 			titleEl.innerHTML = this.data.title;
 		}
 
@@ -78,7 +80,7 @@ export default class VideoEmbed {
 		}
 		// Create the div.video
 		else {
-			const videoEl = document.createElement('div');
+			videoEl = document.createElement('div');
 			videoEl.classList.add('video');
 
 			this.el.parentNode.insertBefore(this.wrapEl, this.el);
