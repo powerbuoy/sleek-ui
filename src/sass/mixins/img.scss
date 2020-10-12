@@ -28,7 +28,9 @@
 	}
 
 	> img,
-	> :not(figcaption) img {
+	> video,
+	> :not(figcaption) img,
+	> :not(figcaption) video {
 		@include img-background;
 
 		z-index: auto;
