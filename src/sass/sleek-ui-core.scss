@@ -8,8 +8,8 @@
 		--site-width-max#{$var-suffix}: #{$max};
 	}
 
-	--site-width#{$var-suffix}: min(var(--site-width-min), var(--site-width-max));
-	--site-padding#{$var-suffix}: calc((100vw - var(--site-width)) / 2);
+	--site-width#{$var-suffix}: min(var(--site-width-min#{$var-suffix}), var(--site-width-max#{$var-suffix}));
+	--site-padding#{$var-suffix}: calc((100vw - var(--site-width#{$var-suffix})) / 2);
 }
 
 :root {
