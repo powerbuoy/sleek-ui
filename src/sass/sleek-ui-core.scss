@@ -1,15 +1,15 @@
 /////////////
 // Site width
-@mixin site-width ($min: false, $max: false) {
+@mixin site-width ($min: false, $max: false, $var-suffix: '') {
 	@if ($min) {
-		--site-width-min: #{$min};
+		--site-width-min#{$var-suffix}: #{$min};
 	}
 	@if ($max) {
-		--site-width-max: #{$max};
+		--site-width-max#{$var-suffix}: #{$max};
 	}
 
-	--site-width: min(var(--site-width-min), var(--site-width-max));
-	--site-padding: calc((100vw - var(--site-width)) / 2);
+	--site-width#{$var-suffix}: min(var(--site-width-min), var(--site-width-max));
+	--site-padding#{$var-suffix}: calc((100vw - var(--site-width)) / 2);
 }
 
 :root {
