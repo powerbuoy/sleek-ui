@@ -59,7 +59,7 @@ h6,
 a {
 	color: var(--link-color, var(--color-primary, blue));
 	text-decoration: var(--link-decoration, none);
-	transition: color var(--link-transition-duration, 0.25s) ease;
+	transition: color var(--link-transition-duration, 0.25s) var(--transition-easing);
 	cursor: pointer;
 
 	&:hover {

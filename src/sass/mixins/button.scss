@@ -22,7 +22,7 @@
 	border: var(--button-border-width, 1px) var(--button-border-style, solid) var(--button-color, var(--color-primary, blue));
 	border-radius: var(--button-border-radius, var(--border-radius, 0));
 
-	transition: all var(--button-transition-duration, 0.25s) ease;
+	transition: all var(--button-transition-duration, 0.25s) var(--transition-easing);
 	box-shadow: var(--button-shadow, none);
 
 	&:hover {

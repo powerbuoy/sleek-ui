@@ -3,7 +3,7 @@
 [data-slideshow] {
 	// If using adaptiveHeight: true
 	.flickity-viewport {
-		transition: height 0.2s ease;
+		transition: height 0.2s var(--transition-easing);
 	}
 
 	// Slide width
@@ -58,7 +58,7 @@
 			width: var(--slideshow-bullet-size, 0.5rem);
 			height: var(--slideshow-bullet-size, 0.5rem);
 			opacity: 1;
-			transition: background-color 0.2s ease;
+			transition: background-color 0.2s var(--transition-easing);
 
 			&.is-selected {
 				background: var(--slideshow-bullet-color-active, var(--color-primary, #f90));
