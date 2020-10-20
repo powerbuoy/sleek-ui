@@ -20,19 +20,21 @@
 	padding-bottom: $padding-bottom;
 }
 
-@mixin img-ratio ($width: 16, $height: 9) {
+@mixin img-ratio ($width: 16, $height: 9, $bg: true) {
 	position: relative;
 
 	&::before {
 		@include ratio($width, $height);
 	}
 
-	> img,
-	> video,
-	> :not(figcaption) img,
-	> :not(figcaption) video {
-		@include img-background;
+	@if ($bg) {
+		> img,
+		> video,
+		> :not(figcaption) img,
+		> :not(figcaption) video {
+			@include img-background;
 
-		z-index: auto;
+			z-index: auto;
+		}
 	}
 }
