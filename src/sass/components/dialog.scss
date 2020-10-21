@@ -31,11 +31,16 @@ div.dialog {
 	// Close button
 	.dialog__close {
 		position: absolute;
-		right: var(--spacing-medium, 1rem);
-		top: var(--spacing-medium, 1rem);
+		right: var(--dialog-padding, var(--spacing-large, 3rem));
+		top: var(--dialog-padding, var(--spacing-large, 3rem));
 		font-size: var(--dialog-close-button-size, 2rem);
 		line-height: 1;
 		color: var(--dialog-close-button-color, var(--text-color, black));
+
+		@media (--tablet) {
+			right: calc(var(--dialog-padding, var(--spacing-large, 3rem)) / 2);
+			top: calc(var(--dialog-padding, var(--spacing-large, 3rem)) / 2);
+		}
 
 		@if (variable-exists("icon-close")) {
 			font-size: 0;
