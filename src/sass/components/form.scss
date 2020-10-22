@@ -29,7 +29,7 @@ textarea {
 	text-align: left;
 	color: var(--form-field-text-color, var(--text-color, inherit));
 
-	transition: all var(--form-field-transition-duration, 0.25s) var(--transition-easing);
+	transition: all var(--form-field-transition-duration, 0.25s) var(--easing);
 
 	border-width: var(--form-field-border-width, 1px);
 	border-style: var(--form-field-border-style, solid);

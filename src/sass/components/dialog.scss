@@ -26,7 +26,7 @@ div.dialog {
 	pointer-events: none;
 	opacity: 0;
 	transform: translate(-50%, -50%) scale(0.95);
-	transition: opacity var(--dialog-animation-duration, 0.5s) var(--transition-easing), transform var(--dialog-animation-duration, 0.5s) var(--transition-easing);
+	transition: opacity var(--dialog-animation-duration, 0.5s) var(--easing), transform var(--dialog-animation-duration, 0.5s) var(--easing);
 
 	// Close button
 	.dialog__close {
@@ -69,7 +69,7 @@ div.dialog + div.backdrop {
 	// When closed
 	pointer-events: none;
 	opacity: 0;
-	transition: opacity var(--dialog-animation-duration, 0.5s) var(--transition-easing);
+	transition: opacity var(--dialog-animation-duration, 0.5s) var(--easing);
 }
 
 // When open

@@ -4,7 +4,7 @@
 	background-size: 100% var(--burger-menu-thickness, 2px);
 	background-position: left 50%;
 	background-repeat: no-repeat;
-	transition: background var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) var(--transition-easing);
+	transition: background var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) var(--easing);
 
 	display: block;
 	position: relative;
@@ -26,23 +26,23 @@
 		width: 100%;
 		height: var(--burger-menu-thickness, 2px);
 
-		transition: top var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) var(--transition-easing),
-					transform var(--burger-menu-transition-duration, 0.25s) var(--transition-easing),
-					background var(--burger-menu-transition-duration, 0.25s) var(--transition-easing);
+		transition: top var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) var(--easing),
+					transform var(--burger-menu-transition-duration, 0.25s) var(--easing),
+					background var(--burger-menu-transition-duration, 0.25s) var(--easing);
 	}
 
 	&::after {
 		top: auto;
 		bottom: 0;
-		transition: bottom var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) var(--transition-easing),
-					transform var(--burger-menu-transition-duration, 0.25s) var(--transition-easing),
-					background var(--burger-menu-transition-duration, 0.25s) var(--transition-easing);
+		transition: bottom var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) var(--easing),
+					transform var(--burger-menu-transition-duration, 0.25s) var(--easing),
+					background var(--burger-menu-transition-duration, 0.25s) var(--easing);
 	}
 }
 
 @mixin burger-menu-open ($color: false) {
 	background-position: calc(var(--burger-menu-size, 24px) * 1.5) 50%; // NOTE: * 1.5 because of rounding errors sometimes which cause the middle line to show 1px
-	transition: background var(--burger-menu-transition-duration, 0.25s) var(--transition-easing);
+	transition: background var(--burger-menu-transition-duration, 0.25s) var(--easing);
 
 	@if ($color) {
 		background-image: linear-gradient(to right, transparent, transparent calc(100% - var(--burger-menu-middle-width, 100%)), $color calc(100% - var(--burger-menu-middle-width, 100%)));
@@ -56,17 +56,17 @@
 	&::before {
 		top: calc(50% - (var(--burger-menu-thickness, 2px) / 2));
 		transform: rotate(45deg);
-		transition: top var(--burger-menu-transition-duration, 0.25s) var(--transition-easing),
-					transform var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) var(--transition-easing),
-					background var(--burger-menu-transition-duration, 0.25s) var(--transition-easing);
+		transition: top var(--burger-menu-transition-duration, 0.25s) var(--easing),
+					transform var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) var(--easing),
+					background var(--burger-menu-transition-duration, 0.25s) var(--easing);
 	}
 
 	&::after {
 		bottom: calc(50% - (var(--burger-menu-thickness, 2px) / 2));
 		transform: rotate(-45deg);
-		transition: bottom var(--burger-menu-transition-duration, 0.25s) var(--transition-easing),
-					transform var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) var(--transition-easing),
-					background var(--burger-menu-transition-duration, 0.25s) var(--transition-easing);
+		transition: bottom var(--burger-menu-transition-duration, 0.25s) var(--easing),
+					transform var(--burger-menu-transition-duration, 0.25s) var(--burger-menu-transition-duration, 0.25s) var(--easing),
+					background var(--burger-menu-transition-duration, 0.25s) var(--easing);
 	}
 }
 
@@ -88,7 +88,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, calc((var(--burger-menu-size, 24px) / 6) * -1)) rotate(0deg);
-		transition: transform var(--burger-menu-transition-duration, 0.25s) var(--transition-easing), background-color var(--burger-menu-transition-duration, 0.25s) var(--transition-easing);
+		transition: transform var(--burger-menu-transition-duration, 0.25s) var(--easing), background-color var(--burger-menu-transition-duration, 0.25s) var(--easing);
 
 		width: 100%;
 		height: var(--burger-menu-thickness, 2px);
