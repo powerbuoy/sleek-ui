@@ -62,10 +62,7 @@ export default class VideoEmbed {
 		// Image wrapper
 		this.thumbnailEl = document.createElement('div');
 		this.thumbnailEl.classList.add('thumbnail');
-
-		if (this.data.thumbnail_url) {
-			this.thumbnailEl.appendChild(this.buildThumbnailHTML());
-		}
+		this.thumbnailEl.appendChild(this.buildThumbnailHTML());
 
 		// Title
 		if (this.data.title) {
