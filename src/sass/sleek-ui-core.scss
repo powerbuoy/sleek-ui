@@ -8,8 +8,13 @@
 		--site-width-max#{$var-suffix}: #{$max};
 	}
 
-	--site-width#{$var-suffix}: min(var(--site-width-min#{$var-suffix}), var(--site-width-max#{$var-suffix}));
+	--site-width#{$var-suffix}: var(--site-width-max#{$var-suffix});
 	--site-padding#{$var-suffix}: calc((100vw - var(--site-width#{$var-suffix})) / 2);
+
+	@supports (padding: min(10%, 100px)) {
+		--site-width#{$var-suffix}: min(var(--site-width-min#{$var-suffix}), var(--site-width-max#{$var-suffix}));
+		--site-padding#{$var-suffix}: calc((100vw - var(--site-width#{$var-suffix})) / 2);
+	}
 }
 
 :root {
