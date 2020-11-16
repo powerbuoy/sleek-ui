@@ -14,14 +14,14 @@ export default class FilterItems {
 		if (this.inputs.length) {
 			this.inputs.forEach(input => {
 				input.addEventListener('change', e => {
-					this.form.dispatchEvent(new Event('submit', {bubbles: true}));
+					this.form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
 				});
 			});
 		}
 
 		if (this.q) {
 			this.q.addEventListener('input', e => {
-				this.form.dispatchEvent(new Event('submit', {bubbles: true}));
+				this.form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
 			});
 		}
 

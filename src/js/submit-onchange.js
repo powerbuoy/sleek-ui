@@ -28,7 +28,7 @@ export default class SubmitOnchange {
 
 	submit () {
 		// Trigger onsubmit
-		this.form.dispatchEvent(new Event('submit', {bubbles: true}));
+		this.form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
 
 		// Actually submit the form
 		this.form.submit();
