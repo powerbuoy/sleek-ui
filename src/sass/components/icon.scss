@@ -2,9 +2,17 @@
 [class*=" icon-"]::before {
 	margin-right: var(--icon-margin, var(--spacing-x-small, 0.25rem));
 	margin-left: 0;
+
+	&:empty {
+		margin-right: 0;
+	}
 }
 
 .icon--after::after {
 	margin-right: 0;
 	margin-left: var(--icon-margin, var(--spacing-x-small, 0.25rem));
+
+	&:empty {
+		margin-left: 0;
+	}
 }
