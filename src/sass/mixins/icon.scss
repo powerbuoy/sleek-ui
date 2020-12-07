@@ -20,12 +20,4 @@
 	content: $icon-code;
 	margin-right: var(--icon-margin, var(--spacing-x-small, 0.25rem));
 	margin-left: 0;
-
-	&:empty {
-		margin-right: 0;
-	}
-
-	&:blank {
-		margin-right: 0;
-	}
 }

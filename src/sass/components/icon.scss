@@ -1,26 +1,30 @@
-[class^=icon-]::before,
-[class*=" icon-"]::before {
-	margin-right: var(--icon-margin, var(--spacing-x-small, 0.25rem));
-	margin-left: 0;
+[class^=icon-],
+[class*=" icon-"] {
+	&::before {
+		margin-right: var(--icon-margin, var(--spacing-x-small, 0.25rem));
+		margin-left: 0;
+	}
 
-	&:empty {
+	&:empty::before {
 		margin-right: 0;
 	}
 
-	&:blank {
+	&:blank::before {
 		margin-right: 0;
 	}
 }
 
-.icon--after::after {
-	margin-right: 0;
-	margin-left: var(--icon-margin, var(--spacing-x-small, 0.25rem));
+.icon--after {
+	&::after {
+		margin-right: 0;
+		margin-left: var(--icon-margin, var(--spacing-x-small, 0.25rem));
+	}
 
-	&:empty {
+	&:empty::after {
 		margin-left: 0;
 	}
 
-	&:blank {
+	&:blank::after {
 		margin-left: 0;
 	}
 }
