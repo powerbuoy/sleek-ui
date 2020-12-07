@@ -16,5 +16,8 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
+	// Added this
 	content: $icon-code;
+	margin-right: var(--icon-margin, var(--spacing-small), 0.75rem);
+	margin-left: 0;
 }

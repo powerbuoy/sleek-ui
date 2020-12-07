@@ -1,0 +1,10 @@
+[class^=icon-]::before,
+[class*=" icon-"]::before {
+	margin-right: var(--icon-margin, var(--spacing-small), 0.75rem);
+	margin-left: 0;
+}
+
+.icon--after::after {
+	margin-right: 0;
+	margin-left: var(--icon-margin, var(--spacing-small), 0.75rem);
+}
