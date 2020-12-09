@@ -30,8 +30,10 @@
 	@if ($bg) {
 		> img,
 		> video,
+		> iframe,
 		> :not(figcaption) img,
-		> :not(figcaption) video {
+		> :not(figcaption) video,
+		> :not(figcaption) iframe {
 			@include img-background;
 
 			z-index: auto;
