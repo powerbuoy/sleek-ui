@@ -1,5 +1,8 @@
 @import "~flickity/dist/flickity.css";
 
+$icon-left: '<' !default;
+$icon-right: '>' !default;
+
 // Converts slideshow bullets into "1 / 4"
 @mixin slideshow-numbered-bullets {
 	counter-reset: slideshow-bullets;
