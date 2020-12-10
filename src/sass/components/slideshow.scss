@@ -10,7 +10,7 @@ $icon-right: '>' !default;
 	grid-template-columns: 1fr 1fr;
 	width: max-content;
 
-	> li {
+	.dot {
 		all: unset;
 
 		counter-increment: slideshow-bullets;
