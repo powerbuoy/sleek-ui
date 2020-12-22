@@ -100,6 +100,7 @@ $icon-right: '>' !default;
 			background: var(--slideshow-bullet-color, #999);
 			width: var(--slideshow-bullet-size, 0.5rem);
 			height: var(--slideshow-bullet-size, 0.5rem);
+			margin: 0 var(--slideshow-bullet-margin, var(--spacing-small, 0.5rem));
 			opacity: 1;
 			transition: background-color 0.25s var(--easing);
 
