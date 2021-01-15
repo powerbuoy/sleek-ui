@@ -1,5 +1,5 @@
 // Separated
-@mixin list-separated ($separator: " | ") {
+@mixin list-separated {
 	margin-left: 0;
 	padding-left: 0;
 	list-style: none;
@@ -8,13 +8,14 @@
 		display: inline-block;
 
 		&:not(:last-child):after {
-			content: $separator;
+			margin-right: var(--list-separated-spacing, 0);
+			content: var(--list-separated-separator, " | ");
 		}
 	}
 }
 
 // Key/value list
-@mixin list-key-val ($after: ":") {
+@mixin list-key-val {
 	display: grid;
 	grid-template-columns: max-content auto;
 	grid-column-gap: var(--list-key-val-spacing, var(--spacing-x-small, 0.25rem));
@@ -28,7 +29,31 @@
 		grid-column-start: 1;
 
 		&::after {
-			content: $after;
+			content: var(--list-key-val-suffix, ":");
+		}
+	}
+}
+
+// List with icon
+@mixin list-icon {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+
+	> * {
+		position: relative;
+		margin-bottom: var(--list-icon-spacing, 0);
+		padding-left: calc(var(--list-icon-size, var(--body-font-size, 1rem)) * 1.5);
+
+		&::before {
+			@include icon(var(--list-icon, "#{$icon-check}"));
+
+			margin: 0;
+			position: absolute;
+			left: 0;
+			top: 0;
+			font-size: var(--list-icon-size, var(--body-font-size, 1rem));
+			line-height: inherit;
 		}
 	}
 }
