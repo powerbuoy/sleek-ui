@@ -1,5 +1,5 @@
 // Separated
-@mixin list-separated {
+@mixin list-separated ($separator: var(--list-separated-separator, " | ")) {
 	margin-left: 0;
 	padding-left: 0;
 	list-style: none;
@@ -9,13 +9,13 @@
 
 		&:not(:last-child):after {
 			margin-right: var(--list-separated-spacing, 0);
-			content: var(--list-separated-separator, " | ");
+			content: #{$separator};
 		}
 	}
 }
 
 // Key/value list
-@mixin list-key-val {
+@mixin list-key-val ($suffix: var(--list-key-val-suffix, ":")) {
 	display: grid;
 	grid-template-columns: max-content auto;
 	grid-column-gap: var(--list-key-val-spacing, var(--spacing-x-small, 0.25rem));
@@ -29,13 +29,15 @@
 		grid-column-start: 1;
 
 		&::after {
-			content: var(--list-key-val-suffix, ":");
+			content: #{$suffix};
 		}
 	}
 }
 
 // List with icon
-@mixin list-icon {
+$icon-check: '?' !default;
+
+@mixin list-icon ($icon: var(--list-icon, "#{$icon-check}")) {
 	margin-left: 0;
 	padding-left: 0;
 	list-style: none;
@@ -46,7 +48,7 @@
 		padding-left: calc(var(--list-icon-size, var(--body-font-size, 1rem)) * 1.5);
 
 		&::before {
-			@include icon(var(--list-icon, "#{$icon-check}"));
+			@include icon($icon);
 
 			margin: 0;
 			position: absolute;
