@@ -18,6 +18,7 @@
 	text-align: center;
 	color: var(--button-text-color, white);
 
+	cursor: pointer;
 	outline: 0;
 	border: var(--button-border-width, 1px) var(--button-border-style, solid) var(--button-color, var(--color-primary, blue));
 	border-radius: var(--button-border-radius, var(--border-radius, 0));
