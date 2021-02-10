@@ -120,5 +120,19 @@ export default class Dialog {
 				this.el.sleekDialog.close();
 			}
 		});
+
+		// Listen to open event and close self
+		document.body.addEventListener('sleek-ui/dialog/open', e => {
+			if (e.detail.dialog !== this.el) {
+				this.el.sleekDialog.close();
+			}
+		});
+
+		// Listen to ESC
+		document.addEventListener('keydown', e => {
+			if (e.keyCode === 27) {
+				this.el.sleekDialog.close();
+			}
+		});
 	}
 }
