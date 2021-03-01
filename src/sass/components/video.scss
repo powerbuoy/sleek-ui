@@ -65,7 +65,7 @@ figure.video-embed {
 			}
 
 			> img,
-			> picture {
+			> picture > * {
 				@include img-background;
 
 				z-index: 1;
