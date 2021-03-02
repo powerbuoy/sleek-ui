@@ -122,11 +122,13 @@ export default class Dialog {
 		});
 
 		// Listen to open event and close self
-		document.body.addEventListener('sleek-ui/dialog/open', e => {
+		// NOTE: Don't do this as closing one dialog removes dialog-open from the HTML element which allows scrolling again...
+		// TODO: FIX THIS
+		/* document.body.addEventListener('sleek-ui/dialog/open', e => {
 			if (e.detail.dialog !== this.el) {
 				this.el.sleekDialog.close();
 			}
-		});
+		}); */
 
 		// Listen to ESC
 		document.addEventListener('keydown', e => {

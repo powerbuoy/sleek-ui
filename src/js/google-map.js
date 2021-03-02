@@ -323,7 +323,6 @@ export default class GoogleMap {
 		});
 	}
 
-
 	//////////////////////////
 	// Fill in icon properties
 	static parseIconObject (icon) {
