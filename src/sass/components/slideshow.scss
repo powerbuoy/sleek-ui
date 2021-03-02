@@ -37,6 +37,14 @@ $icon-right: '>' !default;
 
 
 [data-slideshow] {
+	// Display as grid until loaded
+	&:not(.flickity-enabled) {
+		@include grid;
+
+		--grid-gap: var(--slideshow-gap);
+		--grid-cols: var(--slideshow-per-page);
+	}
+
 	// If using adaptiveHeight: true
 	.flickity-viewport {
 		transition: height 0.25s var(--easing);
