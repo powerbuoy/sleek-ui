@@ -100,22 +100,31 @@ export default class VideoEmbed {
 		if (this.data.provider_name === 'YouTube' && this.el.dataset.youtubeId) {
 			const picture = document.createElement('picture');
 
-			const webp = document.createElement('source');
-			webp.srcset = 'https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/maxresdefault.webp 1080w, https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/sddefault.webp 640w, https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/hqdefault.webp 480w, https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/mqdefault.webp 320w';
-			webp.type = 'image/webp';
+			const webpCheck = new Image();
+			webpCheck.src = 'https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/mqdefault.web';
 
-			picture.appendChild(webp);
+			webpCheck.onload = () => {
+				// Check if webp image exists
+			    if (webpCheck.naturalWidth != 120) {
+					const webp = document.createElement('source');
+					webp.srcset = 'https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/maxresdefault.webp 1080w, https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/sddefault.webp 640w, https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/hqdefault.webp 480w, https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/mqdefault.webp 320w';
+					webp.type = 'image/webp';
 
-			const img = document.createElement('source');
-			img.srcset = 'https://i.ytimg.com/vi/' + this.el.dataset.youtubeId + '/maxresdefault.jpg 1080w, https://i.ytimg.com/vi/' + this.el.dataset.youtubeId + '/sddefault.jpg 640w, https://i.ytimg.com/vi/' + this.el.dataset.youtubeId + '/hqdefault.jpg 480w, https://i.ytimg.com/vi/' + this.el.dataset.youtubeId + '/mqdefault.jpg 320w';
-			img.type = 'image/jpeg';
+					picture.appendChild(webp);
+				}
 
-			picture.appendChild(img);
+				const img = document.createElement('source');
+				img.srcset = 'https://i.ytimg.com/vi/' + this.el.dataset.youtubeId + '/maxresdefault.jpg 1080w, https://i.ytimg.com/vi/' + this.el.dataset.youtubeId + '/sddefault.jpg 640w, https://i.ytimg.com/vi/' + this.el.dataset.youtubeId + '/hqdefault.jpg 480w, https://i.ytimg.com/vi/' + this.el.dataset.youtubeId + '/mqdefault.jpg 320w';
+				img.type = 'image/jpeg';
 
-			const fallback = document.createElement('img');
-			fallback.src = 'https://i.ytimg.com/vi/' + this.el.dataset.youtubeId + '/hqdefault.jpg';
+				picture.appendChild(img);
 
-			picture.appendChild(fallback);
+				const fallback = document.createElement('img');
+				fallback.src = 'https://i.ytimg.com/vi/' + this.el.dataset.youtubeId + '/hqdefault.jpg';
+				fallback.loading = 'lazy';
+
+				picture.appendChild(fallback);
+			};
 
 			return picture;
 		}
@@ -146,7 +155,7 @@ export default class VideoEmbed {
 		});
 
 		this.thumbnailEl.addEventListener('click', e => {
-			this.ytPlayer.playVideo();
+			this.play();
 		});
 	}
 
@@ -166,8 +175,26 @@ export default class VideoEmbed {
 		});
 
 		this.thumbnailEl.addEventListener('click', e => {
-			this.vimeoPlayer.play();
+			this.play();
 		});
+	}
+
+	play () {
+		if (this.vimeoPlayer) {
+			this.vimeoPlayer.play();
+		}
+		else if (this.ytPlayer) {
+			this.ytPlayer.playVideo();
+		}
+	}
+
+	pause () {
+		if (this.vimeoPlayer) {
+			this.vimeoPlayer.pause();
+		}
+		else if (this.ytPlayer) {
+			this.ytPlayer.pauseVideo();
+		}
 	}
 
 	addScript (src) {
