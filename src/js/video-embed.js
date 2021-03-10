@@ -101,11 +101,11 @@ export default class VideoEmbed {
 			const picture = document.createElement('picture');
 
 			const webpCheck = new Image();
-			webpCheck.src = 'https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/mqdefault.web';
+			webpCheck.src = 'https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/mqdefault.webp';
 
 			webpCheck.onload = () => {
 				// Check if webp image exists
-			    if (webpCheck.naturalWidth != 120) {
+				if (webpCheck.naturalWidth !== 120) {
 					const webp = document.createElement('source');
 					webp.srcset = 'https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/maxresdefault.webp 1080w, https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/sddefault.webp 640w, https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/hqdefault.webp 480w, https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/mqdefault.webp 320w';
 					webp.type = 'image/webp';
