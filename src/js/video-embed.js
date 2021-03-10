@@ -94,49 +94,7 @@ export default class VideoEmbed {
 		}
 	}
 
-	// TODO: Should take provider_name, youttubeId, thumbnail_url as arguments and not rely on dataset.youtubeId
 	buildThumbnailHTML () {
-		// ♥️ Simon
-		if (this.data.provider_name === 'YouTube' && this.el.dataset.youtubeId) {
-			let picture = null;
-			const webpCheck = new Image();
-
-			webpCheck.src = 'https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/mqdefault.webp';
-
-			webpCheck.onload = () => {
-				picture = document.createElement('picture');
-
-				// Check if webp image exists
-				if (webpCheck.naturalWidth !== 120) {
-					const webp = document.createElement('source');
-
-					webp.srcset = 'https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/maxresdefault.webp 1080w, https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/sddefault.webp 640w, https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/hqdefault.webp 480w, https://i.ytimg.com/vi_webp/' + this.el.dataset.youtubeId + '/mqdefault.webp 320w';
-					webp.type = 'image/webp';
-
-					picture.appendChild(webp);
-				}
-
-				const img = document.createElement('source');
-
-				img.srcset = 'https://i.ytimg.com/vi/' + this.el.dataset.youtubeId + '/maxresdefault.jpg 1080w, https://i.ytimg.com/vi/' + this.el.dataset.youtubeId + '/sddefault.jpg 640w, https://i.ytimg.com/vi/' + this.el.dataset.youtubeId + '/hqdefault.jpg 480w, https://i.ytimg.com/vi/' + this.el.dataset.youtubeId + '/mqdefault.jpg 320w';
-				img.type = 'image/jpeg';
-
-				picture.appendChild(img);
-
-				const fallback = document.createElement('img');
-
-				fallback.src = 'https://i.ytimg.com/vi/' + this.el.dataset.youtubeId + '/hqdefault.jpg';
-				fallback.loading = 'lazy';
-
-				picture.appendChild(fallback);
-			};
-
-			if (picture) {
-				return picture;
-			}
-		}
-
-		// Create a standard img
 		const img = document.createElement('img');
 
 		img.setAttribute('loading', 'lazy');
