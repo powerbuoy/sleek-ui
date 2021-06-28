@@ -57,11 +57,11 @@ figure.video-embed {
 				top: 50%;
 				z-index: 3;
 
-				width: 3rem;
-				height: 3rem;
-				margin: -1.5rem 0 0 -1.5rem;
-				font-size: 3rem;
-				color: white;
+				width: var(--video-icon-size, 3rem);
+				height: var(--video-icon-size, 3rem);
+				margin: calc(var(--video-icon-size, 3rem) / 2 * -1) 0 0 calc(var(--video-icon-size, 3rem) / 2 * -1);
+				font-size: var(--video-icon-size, 3rem);
+				color: var(--video-icon-color, white);
 			}
 
 			> img,
@@ -69,7 +69,7 @@ figure.video-embed {
 				@include img-background;
 
 				z-index: 1;
-				filter: brightness(50%);
+				filter: brightness(var(--video-thumbnail-brightness, 50%));
 			}
 		}
 	}
