@@ -40,7 +40,7 @@ export default class VideoEmbed {
 				this.addScript('https://www.youtube.com/iframe_api');
 			}
 			else if (this.data.provider_name === 'Vimeo') {
-				this.addScript('https://player.vimeo.com/api/player.js').then(() => this.initVimeo());
+				this.addVimeoScript('https://player.vimeo.com/api/player.js').then(() => this.initVimeo());
 			}
 		}
 		else {
@@ -176,6 +176,30 @@ export default class VideoEmbed {
 			}
 			else {
 				resolve(existingScript);
+			}
+		});
+	}
+
+	// NOTE: We need to make sure Vimeo has actually loaded here
+	addVimeoScript (src) {
+		return new Promise((resolve, reject) => {
+			const existingScript = document.querySelector('script[src="' + src + '"]');
+
+			if (existingScript) {
+				if (typeof Vimeo === 'undefined') {
+					existingScript.addEventListener('load', () => resolve(existingScript));
+				}
+				else {
+					resolve(existingScript);
+				}
+			}
+			else {
+				const script = document.createElement('script');
+
+				script.src = src;
+
+				document.body.appendChild(script);
+				script.addEventListener('load', () => resolve(script));
 			}
 		});
 	}
