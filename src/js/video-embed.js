@@ -5,7 +5,8 @@ export default class VideoEmbed {
 		this.el = el;
 		this.data = data;
 		this.config = Object.assign({
-			api: true
+			api: true,
+			buildHTML: true
 		}, config);
 
 		this.ytPlayStates = {
@@ -20,7 +21,12 @@ export default class VideoEmbed {
 	}
 
 	mount () {
-		this.buildHTML();
+		if (this.config.buildHTML) {
+			this.buildHTML();
+		}
+		else {
+			this.wrapEl = this.el;
+		}
 
 		// Enable Vimeo / YT APIs
 		if (this.config.api) {
@@ -139,9 +145,11 @@ export default class VideoEmbed {
 			}
 		});
 
-		this.thumbnailEl.addEventListener('click', e => {
-			this.play();
-		});
+		if (this.thumbnailEl) {
+			this.thumbnailEl.addEventListener('click', e => {
+				this.play();
+			});
+		}
 	}
 
 	initVimeo () {
@@ -159,9 +167,11 @@ export default class VideoEmbed {
 			this.wrapEl.classList.remove('video-embed--state-playing');
 		});
 
-		this.thumbnailEl.addEventListener('click', e => {
-			this.play();
-		});
+		if (this.thumbnailEl) {
+			this.thumbnailEl.addEventListener('click', e => {
+				this.play();
+			});
+		}
 	}
 
 	play () {
@@ -230,9 +240,11 @@ export default class VideoEmbed {
 
 		this.el.removeAttribute('src');
 
-		this.thumbnailEl.addEventListener('click', e => {
-			this.el.setAttribute('src', src + '&autoplay=true');
-			this.wrapEl.classList.add('video-embed--state-playing');
-		});
+		if (this.thumbnailEl) {
+			this.thumbnailEl.addEventListener('click', e => {
+				this.el.setAttribute('src', src + '&autoplay=true');
+				this.wrapEl.classList.add('video-embed--state-playing');
+			});
+		}
 	}
 }
