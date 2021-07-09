@@ -7,6 +7,7 @@ export default class VideoEmbed {
 		this.config = Object.assign({
 			api: true
 		}, config);
+
 		this.ytPlayStates = {
 			'??': 'unknown',
 			'-1': 'unstarted',
@@ -21,12 +22,30 @@ export default class VideoEmbed {
 	mount () {
 		this.buildHTML();
 
+		// Enable Vimeo / YT APIs
 		if (this.config.api) {
+			// Convert data-src to src so we can load APIs
 			if (this.el.dataset.src) {
 				this.el.setAttribute('src', this.el.dataset.src);
 			}
 
+			// YouTube
 			if (this.data.provider_name === 'YouTube') {
+				// Add "enablejsapi"
+				let src = this.el.getAttribute('src');
+
+				if (src.indexOf('enablejsapi=1') === -1) {
+					if (src.indexOf('?') === -1) {
+						src = src + '?enablejsapi=1';
+					}
+					else {
+						src = src + '&enablejsapi=1';
+					}
+
+					this.el.setAttribute('src', src);
+				}
+
+				// Add callback
 				const old = window.onYouTubeIframeAPIReady;
 
 				window.onYouTubeIframeAPIReady = () => {
@@ -39,6 +58,7 @@ export default class VideoEmbed {
 
 				this.addScript('https://www.youtube.com/iframe_api');
 			}
+			// Vimeo
 			else if (this.data.provider_name === 'Vimeo') {
 				this.addVimeoScript('https://player.vimeo.com/api/player.js').then(() => this.initVimeo());
 			}
@@ -204,6 +224,7 @@ export default class VideoEmbed {
 		});
 	}
 
+	// Non API version, just toggle data-src on click of thumbnail
 	toggleSrc () {
 		const src = this.el.dataset.src || this.el.getAttribute('src');
 
