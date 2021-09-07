@@ -27,7 +27,7 @@ export class DialogTrigger {
 				this.el.dispatchEvent(this.openEvent);
 
 				// The target is a template
-				if (this.config.target.nodeName.toLowerCase() === 'script') {
+				if (this.config.target.nodeName.toLowerCase() === 'script' || this.config.target.nodeName.toLowerCase() === 'template') {
 					if (this.config.templateDialog) {
 						this.config.templateDialog.className = 'dialog dialog--no-transition ' + this.config.target.className;
 						this.config.templateDialog.innerHTML = this.config.target.innerHTML + '<a class="dialog__close">&times;</a>';
