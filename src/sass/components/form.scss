@@ -1,4 +1,11 @@
-// Form fields
+// All form fields
+input,
+select,
+textarea {
+	accent-color: var(--color-primary, auto);
+}
+
+// Form fields (minus checkbox/radio)
 :--form-field,
 select,
 textarea {
