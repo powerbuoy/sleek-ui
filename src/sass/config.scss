@@ -1,3 +1,17 @@
+/////////////
+// Components
+$components: (
+	"dialog": false,
+	"form": true,
+	"form-wpcf7": false,
+	"form-hs": false,
+	"google-map": false,
+	"google-map-full": false,
+	"slideshow": false,
+	"video-embed": false,
+	"wp-classes": false
+) !default;
+
 ///////////////////////
 // Custom media queries
 @custom-media --tablet (min-width: 768px);
@@ -33,12 +47,12 @@
 	--spacing-small: 0.75rem;
 	--spacing-medium: 1.5rem;
 	--spacing-large: 3rem;
-	--spacing-x-large: 6rem;
+	--spacing-x-large: 5rem;
 
 	// Layout spacing
-	--container-margin: var(--spacing-x-large);
-	--grid-gap: var(--spacing-large);
-	--section-padding: var(--spacing-x-large);
+	--container-margin: 6rem;
+	--grid-gap: 3rem;
+	--section-padding: 6rem;
 
 	// Layout
 	--border-radius: 0.25rem;

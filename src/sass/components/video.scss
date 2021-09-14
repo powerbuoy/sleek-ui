@@ -1,16 +1,6 @@
 $icon-play: "?" !default;
 $icon-spinner: "!" !default;
 
-@keyframes spin-video-overlay-icon {
-	0% {
-		transform: rotate(0deg);
-	}
-
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
 // Responsive video
 .video {
 	position: relative;
@@ -28,72 +18,84 @@ $icon-spinner: "!" !default;
 }
 
 // Video embed with thumbnail, caption and icon
-figure.video-embed {
-	margin: 0 0 var(--video-margin, var(--spacing-medium, 1rem));
-
-	.embed {
-		position: relative;
-
-		.video {
-			margin: 0;
+@if (map-get($components, "video-embed")) {
+	@keyframes video-embed-spin-video-overlay-icon {
+		0% {
+			transform: rotate(0deg);
 		}
 
-		.thumbnail {
-			position: absolute;
-			left: 0;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			cursor: pointer;
+		100% {
+			transform: rotate(360deg);
+		}
+	}
 
-			&::after {
-				@include icon($icon-play);
+	figure.video-embed {
+		margin: 0 0 var(--video-margin, var(--spacing-medium, 1rem));
 
-				display: block;
+		.embed {
+			position: relative;
+
+			.video {
 				margin: 0;
+			}
 
+			.thumbnail {
 				position: absolute;
-				left: 50%;
-				top: 50%;
-				z-index: 3;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				cursor: pointer;
 
-				width: var(--video-icon-size, 3rem);
-				height: var(--video-icon-size, 3rem);
-				margin: calc(var(--video-icon-size, 3rem) / 2 * -1) 0 0 calc(var(--video-icon-size, 3rem) / 2 * -1);
-				font-size: var(--video-icon-size, 3rem);
-				color: var(--video-icon-color, white);
-			}
-
-			> img,
-			> picture > * {
-				@include img-background;
-
-				z-index: 1;
-				filter: brightness(var(--video-thumbnail-brightness, 50%));
-			}
-		}
-	}
-
-	&.video-embed--state-playing {
-		.embed {
-			.thumbnail {
-				display: none;
-			}
-		}
-	}
-
-	&.video-embed--state-buffering {
-		.embed {
-			.thumbnail {
 				&::after {
-					content: $icon-spinner;
-					animation: spin-video-overlay-icon 2s infinite linear;
+					@include icon($icon-play);
+
+					display: block;
+					margin: 0;
+
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					z-index: 3;
+
+					width: var(--video-icon-size, 3rem);
+					height: var(--video-icon-size, 3rem);
+					margin: calc(var(--video-icon-size, 3rem) / 2 * -1) 0 0 calc(var(--video-icon-size, 3rem) / 2 * -1);
+					font-size: var(--video-icon-size, 3rem);
+					color: var(--video-icon-color, white);
+				}
+
+				> img,
+				> picture > * {
+					@include img-background;
+
+					z-index: 1;
+					filter: brightness(var(--video-thumbnail-brightness, 50%));
 				}
 			}
 		}
-	}
 
-	figcaption {
-		text-align: center;
+		&.video-embed--state-playing {
+			.embed {
+				.thumbnail {
+					display: none;
+				}
+			}
+		}
+
+		&.video-embed--state-buffering {
+			.embed {
+				.thumbnail {
+					&::after {
+						content: $icon-spinner;
+						animation: video-embed-spin-video-overlay-icon 2s infinite linear;
+					}
+				}
+			}
+		}
+
+		figcaption {
+			text-align: center;
+		}
 	}
 }
