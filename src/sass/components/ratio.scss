@@ -1,0 +1,16 @@
+$ratios: (
+	(16, 9),
+	(1, 1)
+) !default;
+
+[class*="ratio\:"] {
+	@include img-ratio(16, 9);
+
+	display: block;
+}
+
+@each $ratio in $ratios {
+	.ratio\:#{nth($ratio, 1)}\/#{nth($ratio, 2)}::before {
+		padding-bottom: #{percentage(nth($ratio, 2) / nth($ratio, 1))};
+	}
+}

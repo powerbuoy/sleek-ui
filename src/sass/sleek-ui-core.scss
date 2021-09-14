@@ -26,6 +26,20 @@
 @custom-selector :--heading h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6;
 @custom-selector :--form-field input[type=text], input[type=password], input[type=search], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=date], input[type=month], input[type=week], input[type=time], input[type=datetime], input[type=datetime-local]; //, input[type=color]
 
+/////////////
+// Components
+$components: (
+	"dialog": false,
+	"form": true,
+	"form-wpcf7": false,
+	"form-hs": false,
+	"google-map": false,
+	"google-map-full": false,
+	"slideshow": false,
+	"video-embed": false,
+	"wp-classes": false
+) !default;
+
 // Mixins
 @import "mixins/auto-icons";
 @import "mixins/burger-menu";

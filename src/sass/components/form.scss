@@ -91,9 +91,9 @@
 		}
 	}
 
+	////////
+	// WPCF7
 	@if (map-get($components, "form-wpcf7")) {
-		////////
-		// WPCF7
 		.wpcf7 {
 			.screen-reader-response {
 				display: none;
@@ -125,9 +125,13 @@
 		}
 	}
 
+	//////////
+	// HS Form
 	@if (map-get($components, "form-hs")) {
-		//////////
-		// HS Form
+		.form-title:empty {
+			display: none;
+		}
+
 		.hs-form {
 			fieldset {
 				max-width: none !important;
