@@ -1,5 +1,7 @@
 ///////
 // Form
+@use "sass:math";
+
 @if (map-get($components, "form")) {
 	// All form fields
 	input,
@@ -183,11 +185,11 @@
 					fieldset.form-columns-#{$i} {
 						$grid-gap: 1rem;
 						$total-gap: ($i - 1) * $grid-gap;
-						$gap-per-item: $total-gap / $i;
+						$gap-per-item: math.div($total-gap, $i);
 
 						.hs-form-field {
 							float: left !important;
-							width: calc(#{100% / $i} - #{$gap-per-item}) !important;
+							width: calc(#{math.div(100%, $i)} - #{$gap-per-item}) !important;
 							margin-right: $grid-gap;
 
 							&:last-child {

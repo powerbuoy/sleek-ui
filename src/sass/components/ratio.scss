@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $ratios: (
 	(16, 9),
 	(1, 1)
@@ -11,6 +13,6 @@ $ratios: (
 
 @each $ratio in $ratios {
 	.ratio\:#{nth($ratio, 1)}\/#{nth($ratio, 2)}::before {
-		padding-bottom: #{percentage(nth($ratio, 2) / nth($ratio, 1))};
+		padding-bottom: #{percentage(math.div(nth($ratio, 2), nth($ratio, 1)))};
 	}
 }
