@@ -30,7 +30,7 @@
 		transition: opacity var(--dialog-animation-duration, 0.5s) var(--easing), transform var(--dialog-animation-duration, 0.5s) var(--easing);
 
 		// Close button
-		.close {
+		.dialog-close-button {
 			position: absolute;
 			right: calc(var(--dialog-padding, 3rem) / 2);
 			top: calc(var(--dialog-padding, 3rem) / 2);

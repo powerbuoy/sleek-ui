@@ -1,5 +1,6 @@
 $num-cols: 6 !default;
 
+.grid,
 [class*="grid--"] {
 	@include grid(1);
 }

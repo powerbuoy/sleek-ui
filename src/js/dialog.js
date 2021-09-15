@@ -30,7 +30,7 @@ export class DialogTrigger {
 				if (this.config.target.nodeName.toLowerCase() === 'script' || this.config.target.nodeName.toLowerCase() === 'template') {
 					if (this.config.templateDialog) {
 						this.config.templateDialog.className = 'dialog dialog--no-transition ' + this.config.target.className;
-						this.config.templateDialog.innerHTML = this.config.target.innerHTML + '<a class="close">&times;</a>';
+						this.config.templateDialog.innerHTML = this.config.target.innerHTML + '<a class="dialog-close-button">&times;</a>';
 
 						// HACK: Wait for dialog--no-transition to kick in (for some reason I need around 50ms...)
 						setTimeout(() => {
@@ -110,12 +110,12 @@ export default class Dialog {
 		// Insert close button
 		var close = document.createElement('a');
 
-		close.classList.add('close');
+		close.classList.add('dialog-close-button');
 		close.innerHTML = '&times;';
 		this.el.appendChild(close);
 
 		this.el.addEventListener('click', e => {
-			if (e.target.classList.contains('close')) {
+			if (e.target.classList.contains('dialog-close-button')) {
 				e.preventDefault();
 				this.el.sleekDialog.close();
 			}
