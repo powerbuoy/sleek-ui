@@ -3,11 +3,11 @@
 
 	box-sizing: border-box;
 	display: inline-block;
-	padding: var(--button-padding-vertical, 0.75rem) var(--button-padding-horizontal, 1.25rem);
+	padding: var(--button-padding-y, 0.75rem) var(--button-padding-x, 1.25rem);
 	vertical-align: middle;
 
-	font-size: var(--button-font-size, var(--body-font-size, inherit));
-	font-family: var(--button-font-family, var(--body-font-family, inherit));
+	font-size: var(--button-font-size, inherit);
+	font-family: var(--button-font-family, inherit);
 	font-weight: var(--button-font-weight, normal);
 
 	letter-spacing: var(--button-letter-spacing, 0);

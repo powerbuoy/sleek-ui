@@ -1,23 +1,21 @@
-// Copied directly from fontello
+// Copied directly from fontello but cleaned up a bit
 @mixin icon ($icon-code: "[NOICO]") {
 	font-family: "fontello";
 	font-style: normal;
 	font-weight: normal;
-	speak: none;
+	speak: never;
 	display: inline-block;
 	text-decoration: inherit;
 	width: 1em;
-	margin-right: .2em;
 	text-align: center;
 	font-variant: normal;
 	text-transform: none;
-	line-height: 1em;
-	margin-left: .2em;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
 	// Added this
 	content: $icon-code;
-	margin-right: var(--icon-margin, var(--spacing-x-small, 0.25rem));
+	margin-right: var(--icon-margin, 0.25rem);
 	margin-left: 0;
+	line-height: inherit;
 }

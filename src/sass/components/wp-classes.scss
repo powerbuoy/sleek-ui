@@ -18,7 +18,7 @@
 
 	.aligncenter {
 		display: block;
-		margin: 0 auto var(--spacing-medium, 1rem);
+		margin: 0 auto var(--spacing-medium, 1.5rem);
 		text-align: center;
 
 		img {
@@ -29,12 +29,12 @@
 	@media (--tablet) {
 		.alignleft {
 			float: left;
-			margin: 0 var(--spacing-medium, 1rem) var(--spacing-medium, 1rem) 0;
+			margin: 0 var(--spacing-medium, 1.5rem) var(--spacing-medium, 1.5rem) 0;
 		}
 
 		.alignright {
 			float: right;
-			margin: 0 0 var(--spacing-medium, 1rem) var(--spacing-medium, 1rem);
+			margin: 0 0 var(--spacing-medium, 1.5rem) var(--spacing-medium, 1.5rem);
 		}
 	}
 }

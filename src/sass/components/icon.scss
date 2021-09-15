@@ -1,8 +1,9 @@
 [class^=icon-],
 [class*=" icon-"] {
 	&::before {
-		margin-right: var(--icon-margin, var(--spacing-x-small, 0.25rem));
+		margin-right: var(--icon-margin, 0.25rem);
 		margin-left: 0;
+		line-height: inherit;
 	}
 
 	&:empty::before {
@@ -17,7 +18,8 @@
 .icon--after {
 	&::after {
 		margin-right: 0;
-		margin-left: var(--icon-margin, var(--spacing-x-small, 0.25rem));
+		margin-left: var(--icon-margin, 0.25rem);
+		line-height: inherit;
 	}
 
 	&:empty::after {

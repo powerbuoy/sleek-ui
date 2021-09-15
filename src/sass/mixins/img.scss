@@ -1,3 +1,12 @@
+@mixin ratio ($width: 16, $height: 9) {
+	$padding-bottom: percentage($height / $width);
+
+	pointer-events: none;
+	display: block;
+	content: "";
+	padding-bottom: $padding-bottom;
+}
+
 @mixin img-background {
 	position: absolute;
 	left: 0;
@@ -11,32 +20,21 @@
 	object-position: center center;
 }
 
-@mixin ratio ($width: 16, $height: 9) {
-	$padding-bottom: percentage($height / $width);
-
-	pointer-events: none;
-	display: block;
-	content: "";
-	padding-bottom: $padding-bottom;
-}
-
-@mixin img-ratio ($width: 16, $height: 9, $bg: true) {
+@mixin img-ratio ($width: 16, $height: 9) {
 	position: relative;
 
 	&::before {
 		@include ratio($width, $height);
 	}
 
-	@if ($bg) {
-		> img,
-		> video,
-		> iframe,
-		> :not(figcaption) img,
-		> :not(figcaption) video,
-		> :not(figcaption) iframe {
-			@include img-background;
+	> img,
+	> video,
+	> iframe,
+	> :not(figcaption) img,
+	> :not(figcaption) video,
+	> :not(figcaption) iframe {
+		@include img-background;
 
-			z-index: auto;
-		}
+		z-index: auto;
 	}
 }

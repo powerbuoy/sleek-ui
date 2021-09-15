@@ -20,8 +20,8 @@
 		top: 50%;
 		transform: translate(-50%, -50%);
 
-		padding: var(--dialog-padding, var(--spacing-large, 3rem));
-		box-shadow: var(--dialog-shadow, var(--shadow-large, 0 1rem 1rem rgba(0, 0, 0, .25)));
+		padding: var(--dialog-padding, 3rem);
+		box-shadow: var(--dialog-shadow, 0 1rem 1rem rgba(0, 0, 0, .25));
 
 		// When closed
 		pointer-events: none;
@@ -30,18 +30,13 @@
 		transition: opacity var(--dialog-animation-duration, 0.5s) var(--easing), transform var(--dialog-animation-duration, 0.5s) var(--easing);
 
 		// Close button
-		.dialog__close {
+		.close {
 			position: absolute;
-			right: var(--dialog-padding, var(--spacing-large, 3rem));
-			top: var(--dialog-padding, var(--spacing-large, 3rem));
+			right: calc(var(--dialog-padding, 3rem) / 2);
+			top: calc(var(--dialog-padding, 3rem) / 2);
 			font-size: var(--dialog-close-button-size, 2rem);
 			line-height: 1;
-			color: var(--dialog-close-button-color, var(--text-color, black));
-
-			@media (--tablet) {
-				right: calc(var(--dialog-padding, var(--spacing-large, 3rem)) / 2);
-				top: calc(var(--dialog-padding, var(--spacing-large, 3rem)) / 2);
-			}
+			color: var(--dialog-close-button-color, currentColor);
 
 			@if (variable-exists("icon-close")) {
 				font-size: 0;
@@ -57,8 +52,8 @@
 	}
 
 	// Backdrop
-	div.dialog + div.backdrop {
-		background: var(--dialog-backdrop-color, var(--color-overlay, rgba(0, 0, 0, .6)));
+	div.dialog + div.dialog-backdrop {
+		background: var(--dialog-backdrop-color, rgba(0, 0, 0, .6));
 
 		position: fixed;
 		left: 0;
@@ -81,8 +76,8 @@
 		transform: translate(-50%, -50%) scale(1);
 	}
 
-	div.dialog.open + div.backdrop,
-	html.no-js div.dialog:target + div.backdrop {
+	div.dialog.open + div.dialog-backdrop,
+	html.no-js div.dialog:target + div.dialog-backdrop {
 		pointer-events: all;
 		opacity: 1;
 	}

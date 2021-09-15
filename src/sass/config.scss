@@ -55,7 +55,10 @@
 	--body-line-height: 1.6;
 	--body-letter-spacing: 0;
 	--body-text-transform: none;
+
 	--text-color: black;
+	--text-decoration-color: initial;
+	--text-underline-offset: initial;
 
 	// Headings
 	--h1-size: 3rem;
@@ -79,8 +82,8 @@
 
 	// Button
 	--button-color: #ffbf00;
-	--button-padding-vertical: 1rem;
-	--button-padding-horizontal: 2.6rem;
+	--button-padding-x: 2.6rem;
+	--button-padding-y: 1rem;
 
 	--button-font-size: inherit;
 	--button-font-family: inherit;
@@ -111,8 +114,8 @@
 	--form-field-focus-bg: var(--form-field-bg);
 	--form-field-hover-bg: var(--form-field-bg);
 
-	--form-field-padding-vertical: 0.75rem;
-	--form-field-padding-horizontal: 1.25rem;
+	--form-field-padding-x: 1.25rem;
+	--form-field-padding-y: 0.75rem;
 
 	--form-field-font-size: var(--body-font-size);
 	--form-field-font-family: var(--body-font-family);
@@ -139,8 +142,8 @@
 /*	--slideshow-gap: 2rem;
 	--slideshow-per-page: 1; // Use this to change number of slides per page
 	--slideshow-arrow-size: 2rem;
-	--slideshow-bullet-margin: var(--spacing-large, 3rem);
-	--slideshow-bullet-spacing: var(--spacing-small, 0.5rem);
+	--slideshow-bullet-margin: 3rem;
+	--slideshow-bullet-spacing: 0.5rem;
 	--slideshow-bullet-color: #999;
 	--slideshow-bullet-size: 0.5rem;
 	--slideshow-bullet-color-active: var(--color-primary, #f90); */

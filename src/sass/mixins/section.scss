@@ -1,5 +1,5 @@
 @mixin section ($max: false, $min: false) {
 	@include site-width($min, $max);
 
-	padding: var(--section-padding, var(--spacing-x-large, 6rem)) var(--site-padding);
+	padding: var(--section-padding, 6rem) var(--site-padding);
 }

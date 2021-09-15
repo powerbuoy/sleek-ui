@@ -5,7 +5,7 @@ $icon-spinner: "!" !default;
 .video {
 	position: relative;
 	padding-bottom: #{percentage(9 / 16)}; // 16:9
-	margin: 0 0 var(--video-margin, var(--spacing-medium, 1rem));
+	margin: 0 0 var(--video-margin, var(--spacing-medium, 1.5rem));
 	height: 0;
 
 	> iframe {
@@ -30,7 +30,7 @@ $icon-spinner: "!" !default;
 	}
 
 	figure.video-embed {
-		margin: 0 0 var(--video-margin, var(--spacing-medium, 1rem));
+		margin: 0 0 var(--video-margin, var(--spacing-medium, 1.5rem));
 
 		.embed {
 			position: relative;

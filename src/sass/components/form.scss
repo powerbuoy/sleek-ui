@@ -25,7 +25,7 @@
 		max-width: 100%; // In case user changes width we still want max-width 100%
 
 		margin: 0;
-		padding: var(--form-field-padding-vertical, 0.75rem) var(--form-field-padding-horizontal, 1.25rem);
+		padding: var(--form-field-padding-y, 0.75rem) var(--form-field-padding-x, 1.25rem);
 
 		font-size: var(--form-field-font-size, var(--body-font-size, inherit));
 		font-family: var(--form-field-font-family, var(--body-font-family, inherit));
@@ -62,9 +62,9 @@
 	select {
 		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40"><polygon points="2.7,14.4 6.8,10.3 20,23.5 33.2,10.3 37.3,14.4 20,31.7 "/></svg>');
 		background-repeat: no-repeat;
-		background-position: right var(--form-field-padding-horizontal, 1.25rem) top 50%;
+		background-position: right var(--form-field-padding-x, 1.25rem) top 50%;
 		background-size: var(--select-arrow-size, 0.5rem) auto;
-		padding-right: calc(var(--form-field-padding-horizontal, 1.25rem) * 2 + var(--select-arrow-size, 0.5rem));
+		padding-right: calc(var(--form-field-padding-x, 1.25rem) * 2 + var(--select-arrow-size, 0.5rem));
 	}
 
 	// Textarea
@@ -100,8 +100,8 @@
 			}
 
 			.wpcf7-not-valid-tip {
-				margin: var(--spacing-small) 0 0;
-				color: var(--color-error);
+				margin: var(--spacing-small, 0.75rem) 0 0;
+				color: var(--color-error, red);
 			}
 
 			.ajax-loader {
@@ -143,7 +143,7 @@
 				&[type=radio],
 				&[type=checkbox] {
 					width: auto !important;
-					margin-right: var(--spacing-small);
+					margin-right: var(--spacing-small, 0.75rem);
 				}
 			}
 
@@ -151,7 +151,7 @@
 			.legal-consent-container .hs-form-booleancheckbox-display input {
 				float: none !important;
 				width: auto !important;
-				margin-right: var(--spacing-small);
+				margin-right: var(--spacing-small, 0.75rem);
 			}
 
 			.legal-consent-container .hs-form-booleancheckbox-display > span {
@@ -206,7 +206,7 @@
 			// Labels
 			> label {
 				display: block;
-				margin: 0 0 var(--spacing-small);
+				margin: 0 0 var(--spacing-small, 0.75rem);
 			}
 
 			// Checkboxes / radios
@@ -227,7 +227,7 @@
 
 			// List of errors
 			ul.hs-error-msgs {
-				margin: var(--spacing-small) 0 0;
+				margin: var(--spacing-small, 0.75rem) 0 0;
 				list-style: none;
 
 				li {
