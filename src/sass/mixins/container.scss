@@ -1,5 +1,5 @@
 @mixin container ($max: false, $min: false) {
-	@include site-width($min, $max);
+	@include site-width($min, $max); // TODO: Only include if $min or $max?
 
 	width: var(--site-width);
 	margin: var(--container-margin, 6rem) auto;
