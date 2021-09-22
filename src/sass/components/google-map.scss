@@ -6,7 +6,7 @@ $icon-spinner: '?' !default;
 		height: var(--google-map-height, 30rem);
 		overflow: hidden;
 
-		@if (map-get($components, "google-map-full")) {
+		@if (map-get($components, "google-map-kml")) {
 			// "Toggle KML Layers"
 			.sleek-map-kml-toggler {
 				background-color: #fff;
@@ -20,7 +20,9 @@ $icon-spinner: '?' !default;
 				color: rgb(86, 86, 86);
 				font-family: Roboto, Arial, sans-serif;
 			}
+		}
 
+		@if (map-get($components, "google-map-geolocation")) {
 			// Geolocation icon
 			.sleek-map-geolocation {
 				background-color: #fff;
