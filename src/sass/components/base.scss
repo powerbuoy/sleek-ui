@@ -9,7 +9,8 @@
 }
 
 ::selection {
-	background-color: var(--color-primary, initial);
+	background-color: var(--selection-bg, var(--color-primary, initial));
+	color: var(--selection-color, initial);
 }
 
 html {
@@ -117,8 +118,4 @@ video {
 // Quotes
 blockquote {
 	margin: 0 0 var(--spacing-medium, 1.5rem);
-
-	> :first-child::before {
-		content: open-quote;
-	}
 }

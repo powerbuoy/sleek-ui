@@ -4,6 +4,38 @@
 $icon-left: '<' !default;
 $icon-right: '>' !default;
 
+// Converts slideshow bullets into "1 / 4"
+@mixin slideshow-numbered-bullets {
+	counter-reset: slideshow-bullets;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	width: max-content;
+
+	.dot {
+		all: unset;
+
+		counter-increment: slideshow-bullets;
+		grid-row: 1;
+		grid-column: 1;
+		opacity: 0;
+		transition: opacity 0.25s var(--easing);
+
+		&.is-selected {
+			opacity: 1;
+		}
+
+		&::before {
+			content: counter(slideshow-bullets);
+		}
+	}
+
+	&::after {
+		grid-row: 1;
+		grid-column: 2;
+		content: "/ " counter(slideshow-bullets);
+	}
+}
+
 @if (map-get($components, "slideshow")) {
 	///////////////////////////
 	// Flickity default styling
@@ -232,37 +264,5 @@ $icon-right: '>' !default;
 				}
 			}
 		}
-	}
-}
-
-// Converts slideshow bullets into "1 / 4"
-@mixin slideshow-numbered-bullets {
-	counter-reset: slideshow-bullets;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	width: max-content;
-
-	.dot {
-		all: unset;
-
-		counter-increment: slideshow-bullets;
-		grid-row: 1;
-		grid-column: 1;
-		opacity: 0;
-		transition: opacity 0.25s var(--easing);
-
-		&.is-selected {
-			opacity: 1;
-		}
-
-		&::before {
-			content: counter(slideshow-bullets);
-		}
-	}
-
-	&::after {
-		grid-row: 1;
-		grid-column: 2;
-		content: "/ " counter(slideshow-bullets);
 	}
 }

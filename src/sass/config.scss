@@ -1,22 +1,24 @@
 /////////////
 // Components
 $components: (
-	"dialog": true,
-
 	"form": true,
-	"form-wpcf7": true,
-	"form-hs": true,
+	"form-wpcf7": false,
+	"form-hs": false,
 
-	"google-map": true,
-	"google-map-kml": true,
-	"google-map-geolocation": true,
+	"wp-classes": false,
 
-	"slideshow": true,
+	// JS components (NOTE: will be removed once imported from JS files (see below))
+	"dialog": false,
+
+	"google-map": false,
+	"google-map-kml": false,
+	"google-map-geolocation": false,
+
+	"slideshow": false,
 	"slideshow-buttons": true,
 	"slideshow-bullets": true,
-	"video-embed": true,
 
-	"wp-classes": true
+	"video-embed": false
 );
 
 /////////
