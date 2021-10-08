@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Sleek UI Documentation</title>
+
+		<link rel="stylesheet" href="app.css">
+		<style>
+			:root {
+				--site-width-max: 800px;
+			}
+
+			section:nth-of-type(odd) {
+				background: #fafafa;
+			}
+
+			body > header {
+				background: #222;
+				color: white;
+			}
+
+			body > header p {
+				margin: 0;
+			}
+
+			[data-scrollspy] > * {
+
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<header class="section" data-scrollspy>
+
+			<h1>Sleek UI</h1>
+
+			<p>Documentation TODO: data-scrollspy-el-index + .auto-icons</p>
+
+		</header>
+
+		<main>
+
+			<section class="section" data-scrollspy>
+
+			  <h2>Config</h2>
+
+				<p>You can change most settings in the <a href="#">config file</a>.</p>
+
+			</section>
+
+			<section class="section" data-scrollspy>
+
+			  <h2>Base</h2>
+
+				<p>The base file gives most HTML elements sensible defaults.</p>
+
+			</section>
+
+			<section class="section" data-scrollspy>
+
+			  <h2>Text</h2>
+
+				<p>There's a couple of mixins you can use to turn anything into a heading (<code>@include heading</code>) or plain text (<code>@include text</code>).</p>
+
+				<p>Headings can also be set using the <code>.h1</code> - <code>.h6</code> classes.</p>
+
+			</section>
+
+			<section class="section" data-scrollspy>
+
+			  <h2>Button</h2>
+
+				<p>Use the <code>button</code>-class to create buttons. You can change the button color using <code>--button-color</code>.</p>
+
+				<nav>
+					<a href="#" class="button">Regular button</a>
+					<a href="#" class="button button--ghost">Ghost button</a>
+					<a href="#" class="button" style="--button-color: navy">Different color</a>
+				</nav>
+
+			</section>
+
+			<section class="section" data-scrollspy>
+
+			  <h2>Section</h2>
+
+				<p>This is a section. It's an element that is <code>100vw</code> while its contents is <code>var(--site-width)</code></p>
+
+				<p>Sections are useful for parts of the page that need a background color or image.</p>
+
+				<p>A section should only be used directly inside <code>&lt;main&gt;</code>. You should never nest sections or containers.</p>
+
+			</section>
+
+			<section class="container" data-scrollspy>
+
+			  <h2>Container</h2>
+
+				<p>A container is similar to a section except for two things:</p>
+
+				<ol>
+					<li>It doesn't span the entire width of the site</li>
+					<li>It uses margin instead of padding</li>
+				</ol>
+
+				<p>Containers are usefull for parts of the page that should be transparent.</p>
+
+			</section>
+
+			<section class="section" data-scrollspy>
+
+			  <h2>Grid</h2>
+
+				<p>Grids can easily be created using the <code>grid</code> class. To specify the number of columns you append <code>--${num}</code> to the class, like <code>grid grid--2</code>.</p>
+
+				<p>You can also combine the grid classes with the breakpoint classes to have a different number of columns in different resolutions, like this: <code>grid tablet:grid--2 laptop:grid--3</code>.</p>
+
+				<hr>
+
+				<div class="grid tablet:grid--2 laptop:grid--3">
+
+					<article>
+
+						<h3>First grid item</h3>
+
+						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+
+					</article>
+
+					<article>
+
+						<h3>Second grid item</h3>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+
+					</article>
+
+					<article>
+
+						<h3>Third grid item</h3>
+
+						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+
+					</article>
+
+				</div>
+
+			</section>
+
+			<section class="section" data-scrollspy>
+
+			  <h2>Icons</h2>
+
+				<p>Icons are downloaded from fontello. Configure which icons you want to use in icons.json. Then use the <code>icon-</code>class anywhere you like:</p>
+
+				<p>
+					<a href="#" class="icon-check">Save</a>
+					<a href="#" class="icon-close">Cancel</a>
+				</p>
+
+				<nav>
+					<a href="#" class="button icon-star-empty">Like</a>
+					<a href="#" class="button button--ghost icon-right icon--after">Continue</a>
+				</nav>
+
+			</section>
+
+			<section class="section" data-scrollspy>
+
+			  <h2>Auto Icons</h2>
+
+				<p>Auto icons can be used on a wrapper containing links pointing to common resources like PDFs, images, Facebook, Twitter etc (you define the sources in config.scss).</p>
+
+				<p>Auto icons are only available as a mixin so you can use it like <code>ul {@include auto-icons}</code> on a list like this:</p>
+
+				<ul class="auto-icons">
+					<li><a href="https://facebook.com">Facebook</a></li>
+					<li><a href="https://twitter.com">Twitter</a></li>
+				</ul>
+
+			</section>
+
+			<section class="section" data-scrollspy>
+
+			  <h2>Aspect Ratio</h2>
+
+				<p>You can use the <code>ratio--</code>classes to give an element a certain aspect ratio. Add more classes using the <code>$ratios</code> map in config.scss</p>
+
+				<div class="grid grid--2">
+					<figure class="ratio--1-1">
+						<img src="https://via.placeholder.com/800x600">
+					</figure>
+					<figure class="ratio--1-1">
+						<img src="https://via.placeholder.com/800x600">
+					</figure>
+				</div>
+
+			</section>
+
+			<section class="section" data-scrollspy>
+
+			  <h2>Forms</h2>
+
+				<p>There's some basic form styling in place for inputs, textareas and select elements.</p>
+
+				<p>There's also optional styling of HubSpot forms as well as Contact Form 7 forms available.</p>
+
+				<form action="" method="post">
+
+					<p>
+						<label>
+							A text field<br>
+							<input type="text">
+						</label>
+					</p>
+
+					<p>
+						<label>
+							Date picker<br>
+							<input type="date">
+						</label>
+					</p>
+
+					<p>
+						<label>
+							A textarea<br>
+							<textarea rows="8" cols="80"></textarea>
+						</label>
+					</p>
+
+					<p>
+						<label>
+							Select element<br>
+							<select>
+								<option disabled selected>-- Choose --</option>
+								<option>Option A</option>
+								<option>Option B</option>
+							</select>
+						</label>
+					</p>
+
+					<div class="grid--2">
+
+						<p>
+							Radios<br>
+							<label>
+								<input type="radio" name="foo">
+								Foo
+							</label>
+							<label>
+								<input type="radio" name="foo">
+								Bar
+							</label>
+						</p>
+
+						<p>
+							Checkboxes<br>
+							<label>
+								<input type="checkbox">
+								Foo
+							</label>
+							<label>
+								<input type="checkbox">
+								Bar
+							</label>
+						</p>
+
+					</div>
+
+					<div class="grid--2">
+
+						<p>
+							<label>
+								Color picker<br>
+								<input type="color">
+							</label>
+						</p>
+
+						<p>
+							<label>
+								Range<br>
+								<input type="range">
+							</label>
+						</p>
+
+					</div>
+
+					<p> <input type="submit" value="Submit button"> </p>
+
+				</form>
+
+			</section>
+
+			<section class="section" data-scrollspy>
+
+			  <h2>Video</h2>
+
+				<p>Use the <code>video</code> class around a video embed to make it 16/9 and responsive.</p>
+
+				<div class="video">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/X-t0bj6LHTg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+
+			</section>
+
+			<section class="section" data-scrollspy>
+
+			  <h2>Video Embed</h2>
+
+				<p>If you give an iframe embed a <code>data-oembed</code> attribute with a JSON containing at least a <code>provider_name</code> property you can use the <code>VideoEmbed</code> class to give it some special functionality.</p>
+
+				<p>You can also replace the <code>src</code> attribute with a <code>data-src</code> attribute to prevent loading the video until the play button is clicked.</p>
+
+				<div class="video">
+					<iframe title="Relax Your Mind With Beautiful Relaxing Music &amp; Beautiful Nature for Insomnia Relief, Meditation" width="500" height="281" data-src="https://www.youtube.com/embed/X-t0bj6LHTg?feature=oembed&#038;enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" data-oembed-url="https://www.youtube.com/watch?v=X-t0bj6LHTg" data-oembed='{"title":"Relax Your Mind With Beautiful Relaxing Music &#038; Beautiful Nature for Insomnia Relief, Meditation","author_name":"Peaceful Sounds","author_url":"https:\/\/www.youtube.com\/channel\/UCILkBG_vYF65O_7lqjDQJaA","type":"video","height":281,"width":500,"version":"1.0","provider_name":"YouTube","provider_url":"https:\/\/www.youtube.com\/","thumbnail_height":360,"thumbnail_width":480,"thumbnail_url":"https:\/\/i.ytimg.com\/vi\/X-t0bj6LHTg\/hqdefault.jpg"}' data-youtube-id="X-t0bj6LHTg"></iframe>
+				</div>
+
+			</section>
+
+			<section class="section" data-scrollspy>
+
+			  <h2>Dialog / popup</h2>
+
+			</section>
+
+			<section class="section" data-scrollspy>
+
+			  <h2>Slideshow</h2>
+
+			</section>
+
+			<section class="section" data-scrollspy>
+
+			  <h2>Google Map</h2>
+
+			</section>
+
+			<section class="section" data-scrollspy>
+
+			  <h2>Scrollspy</h2>
+
+			</section>
+
+		</main>
+
+		<script src="app.js"></script>
+
+	</body>
+
+</html>
