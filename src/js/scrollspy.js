@@ -19,6 +19,8 @@ export default class Scrollspy {
 	}
 
 	mount () {
+		Array.from(this.el.children).forEach((child, index) => child.style.setProperty('--scrollspy-el-index', index));
+
 		if (this.config.threshold !== 0 && this.config.adjustThreshold) {
 			const elHeight = this.el.getBoundingClientRect().height;
 			var th = this.config.threshold;
