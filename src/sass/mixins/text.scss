@@ -16,10 +16,14 @@
 
 	@if ($color) {
 		color: $color;
-	}
 
-	a {
-		color: currentColor;
+		a {
+			color: $color;
+
+			&:hover {
+				color: $color;
+			}
+		}
 	}
 }
 
