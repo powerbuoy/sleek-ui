@@ -101,7 +101,7 @@ $icon-right: '>' !default;
 		}
 
 		// Bullets
-		@if (map-get($components, "slideshow")) {
+		@if (map-get($components, "slideshow-bullets")) {
 			.flickity-page-dots {
 				all: unset;
 
