@@ -1,6 +1,5 @@
-@mixin heading ($size: var(--h1-size, 3rem), $color: var(--heading-color, inherit)) {
+@mixin heading ($size: var(--h1-size, 3rem), $color: var(--heading-color, inherit), $margin: var(--spacing-medium, 1.5rem)) {
 	display: block;
-	margin: 0 0 var(--spacing-medium, 1.5rem);
 
 	font-family: var(--heading-font-family, inherit);
 	font-weight: var(--heading-font-weight, bold);
@@ -9,6 +8,10 @@
 	line-height: var(--heading-line-height, 1.2);
 	letter-spacing: var(--heading-letter-spacing, 0);
 	text-transform: var(--heading-text-transform, none);
+
+	@if ($margin) {
+		margin: 0 0 #{$margin};
+	}
 
 	@if ($size) {
 		font-size: $size;
