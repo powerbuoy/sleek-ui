@@ -1,6 +1,6 @@
 // Video embed with thumbnail, caption and icon
 @if (map-get($components, "video-embed")) {
-	@keyframes video-embed-spin-video-overlay-icon {
+	@keyframes video-embed-spin {
 		0% {
 			transform: rotate(0deg) translate(-50%, -50%);
 		}
@@ -69,7 +69,7 @@
 				.thumbnail {
 					&::after {
 						content: $icon-spinner;
-						animation: video-embed-spin-video-overlay-icon 2s infinite linear;
+						animation: video-embed-spin 2s infinite linear;
 					}
 				}
 			}
