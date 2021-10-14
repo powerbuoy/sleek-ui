@@ -2,16 +2,16 @@
 @if (map-get($components, "video-embed")) {
 	@keyframes video-embed-spin-video-overlay-icon {
 		0% {
-			transform: rotate(0deg);
+			transform: rotate(0deg) translate(-50%, -50%);
 		}
 
 		100% {
-			transform: rotate(360deg);
+			transform: rotate(360deg) translate(-50%, -50%);
 		}
 	}
 
 	figure.video-embed {
-		margin: 0 0 var(--video-margin, var(--spacing-medium, 1.5rem));
+		margin: 0 0 var(--spacing-medium, 1.5rem);
 
 		.embed {
 			position: relative;
@@ -39,11 +39,11 @@
 					top: 50%;
 					z-index: 3;
 
-					width: var(--video-icon-size, 3rem);
-					height: var(--video-icon-size, 3rem);
-					margin: calc(var(--video-icon-size, 3rem) / 2 * -1) 0 0 calc(var(--video-icon-size, 3rem) / 2 * -1);
 					font-size: var(--video-icon-size, 3rem);
+					line-height: var(--video-icon-size, 3rem);
 					color: var(--video-icon-color, white);
+
+					transform: translate(-50%, -50%);
 				}
 
 				> img,
