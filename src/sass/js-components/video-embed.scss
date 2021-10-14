@@ -2,11 +2,11 @@
 @if (map-get($components, "video-embed")) {
 	@keyframes video-embed-spin {
 		0% {
-			transform: rotate(0deg) translate(-50%, -50%);
+			transform: translate(-50%, -50%) rotate(0deg);
 		}
 
 		100% {
-			transform: rotate(360deg) translate(-50%, -50%);
+			transform: translate(-50%, -50%) rotate(360deg);
 		}
 	}
 
