@@ -45,7 +45,7 @@ $icon-check: '?' !default;
 	> * {
 		position: relative;
 		margin-bottom: var(--list-icon-spacing, 0);
-		padding-left: calc(var(--list-icon-size, var(--body-font-size, 1rem)) * 1.5);
+		padding-left: calc(var(--list-icon-size, var(--body-font-size, 1rem)) * 2);
 
 		&::before {
 			@include icon($icon);
