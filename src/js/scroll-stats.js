@@ -19,7 +19,7 @@ export default class ScrollStats {
 	}
 
 	setScrollStats () {
-		const st = document.documentElement.scrollTop || document.body.scrollTop;
+		const st = Math.max((document.documentElement.scrollTop || document.body.scrollTop), 0);
 		const sh = document.documentElement.scrollHeight;
 
 		// If user has scrolled at all
