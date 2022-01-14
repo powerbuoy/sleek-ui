@@ -61,7 +61,7 @@ h6,
 // Links
 a {
 	color: var(--link-color, blue);
-	text-decoration: var(--link-decoration, none);
+	text-decoration-line: var(--link-decoration, none);
 	transition: color var(--link-transition-duration, 0.25s) var(--easing);
 	cursor: pointer;
 
