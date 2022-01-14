@@ -1,4 +1,4 @@
-@mixin heading ($size: var(--h1-size, 3rem), $color: var(--heading-color, inherit), $margin: var(--spacing-medium, 1.5rem)) {
+@mixin heading ($size: var(--h1-size, 3rem), $color: var(--heading-color, inherit), $margin: var(--heading-margin, var(--spacing-medium, 1.5rem))) {
 	display: block;
 
 	font-family: var(--heading-font-family, inherit);
