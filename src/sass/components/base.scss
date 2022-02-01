@@ -5,6 +5,7 @@
 ::after {
 	box-sizing: border-box;
 	text-decoration-color: var(--text-decoration-color, initial);
+	text-decoration-thickness: var(--text-decoration-thickness, initial);
 	text-underline-offset: var(--text-underline-offset, initial);
 }
 

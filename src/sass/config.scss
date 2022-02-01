@@ -134,6 +134,11 @@ $ratios: (
 	--text-color: black;
 	--text-decoration-color: initial;
 	--text-underline-offset: initial;
+	--text-decoration-thickness: initial;
+
+	// Links
+	--link-color: #ffbf00;
+	--link-color-hover: #ffbf00;
 
 	// Headings
 	--h1-size: 3rem;
@@ -152,11 +157,7 @@ $ratios: (
 	--heading-color: inherit;
 	--heading-margin: 1.5rem;
 
-	// Links
-	--link-color: #ffbf00;
-	--link-color-hover: #ffbf00;
-
-	// Button
+	// Buttons
 	--button-color: #ffbf00;
 	--button-padding-x: 2.6rem;
 	--button-padding-y: 1rem;
