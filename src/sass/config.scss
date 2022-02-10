@@ -133,8 +133,11 @@ $ratios: (
 
 	--text-color: black;
 	--text-decoration-color: initial;
-	--text-underline-offset: initial;
-	--text-decoration-thickness: initial;
+	--text-decoration-thickness: 1px;
+	--text-underline-offset: 0.25rem;
+
+	--selection-bg: var(--color-primary);
+	--selection-color: white;
 
 	// Links
 	--link-color: #ffbf00;
