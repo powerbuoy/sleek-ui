@@ -73,12 +73,12 @@ $icon-right: '>' !default;
 				position: absolute;
 				left: 0;
 				top: 50%;
-				transform: translate(calc((100% + var(--slideshow-buttons-margin, var(--spacing-large), 3rem)) * -1), -50%);
+				transform: translate(calc((100% + var(--slideshow-buttons-margin, var(--spacing-large, 3rem))) * -1), -50%);
 
 				&.next {
 					left: auto;
 					right: 0;
-					transform: translate(calc(100% + var(--slideshow-buttons-margin, var(--spacing-large), 3rem)), -50%);
+					transform: translate(calc(100% + var(--slideshow-buttons-margin, var(--spacing-large, 3rem))), -50%);
 				}
 
 				// Replace SVGs with icons
