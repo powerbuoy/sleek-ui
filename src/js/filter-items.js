@@ -29,6 +29,13 @@ export default class FilterItems {
 			e.preventDefault();
 			this.filterItems();
 		});
+
+		this.form.addEventListener('reset', e => {
+			// NOTE: Need to wait for form to reset
+			setTimeout(() => {
+				this.filterItems();
+			});
+		});
 	}
 
 	filterItems () {
