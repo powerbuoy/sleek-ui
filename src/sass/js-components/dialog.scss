@@ -34,6 +34,8 @@
 			position: absolute;
 			right: calc(var(--dialog-padding, 3rem) / 2);
 			top: calc(var(--dialog-padding, 3rem) / 2);
+			z-index: 1;
+
 			font-size: var(--dialog-close-button-size, 2rem);
 			line-height: 1;
 			color: var(--dialog-close-button-color, currentColor);
