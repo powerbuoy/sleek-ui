@@ -39,6 +39,8 @@ $icon-right: '>' !default;
 	//////////////
 	// Our styling
 	[data-slideshow] {
+		--slideshow-slide-width: calc(100% / var(--slideshow-per-page, 1) - var(--slideshow-gap, 3rem) * (var(--slideshow-per-page, 1) - 1) / var(--slideshow-per-page, 1));
+
 		// Display as grid until loaded
 		&:not(.flickity-enabled) {
 			@include grid;
@@ -54,7 +56,7 @@ $icon-right: '>' !default;
 
 		// Slide width
 		.flickity-slider > * {
-			width: calc(100% / var(--slideshow-per-page, 1) - var(--slideshow-gap, 3rem) * (var(--slideshow-per-page, 1) - 1) / var(--slideshow-per-page, 1));
+			width: var(--slideshow-slide-width);
 			margin-right: var(--slideshow-gap, 3rem);
 		}
 
@@ -111,12 +113,20 @@ $icon-right: '>' !default;
 
 				.dot {
 					background: var(--slideshow-bullet-color, #999);
+
+					display: inline-block;
 					width: var(--slideshow-bullet-size, 0.5rem);
 					height: var(--slideshow-bullet-size, 0.5rem);
+
 					margin: 0 var(--slideshow-bullet-spacing, var(--spacing-small, 0.75rem));
+
 					opacity: 1;
 					border-radius: 50%;
 					transition: background-color 0.25s var(--easing);
+
+					&:focus {
+						box-shadow: none;
+					}
 
 					&.is-selected {
 						background: var(--slideshow-bullet-color-active, var(--color-primary, #f90));
