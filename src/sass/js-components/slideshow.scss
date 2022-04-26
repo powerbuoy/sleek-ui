@@ -115,10 +115,10 @@ $icon-right: '>' !default;
 					background: var(--slideshow-bullet-color, #999);
 
 					display: inline-block;
-					width: var(--slideshow-bullet-size, 0.5rem);
-					height: var(--slideshow-bullet-size, 0.5rem);
+					width: var(--slideshow-bullet-size, 0.75rem);
+					height: var(--slideshow-bullet-size, 0.75rem);
 
-					margin: 0 var(--slideshow-bullet-spacing, var(--spacing-small, 0.75rem));
+					margin: 0 var(--slideshow-bullet-spacing, var(--spacing-small, 0.5rem));
 
 					opacity: 1;
 					border-radius: 50%;
