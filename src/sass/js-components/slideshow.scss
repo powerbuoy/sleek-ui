@@ -111,7 +111,7 @@ $icon-right: '>' !default;
 				text-align: center;
 				margin-top: var(--slideshow-bullet-margin, var(--spacing-large, 3rem));
 
-				.dot {
+				.flickity-page-dot {
 					background: var(--slideshow-bullet-color, #999);
 
 					display: inline-block;
