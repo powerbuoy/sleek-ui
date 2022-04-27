@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/powerbuoy/sleek-ui#readme",
   "dependencies": {
-    "flickity": "^3.0.0",
+    "flickity": "^2.3.0",
     "normalize.css": "^8.0.1"
   }
 }
