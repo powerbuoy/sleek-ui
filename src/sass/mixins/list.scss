@@ -7,7 +7,7 @@
 	> * {
 		display: inline-block;
 
-		&:not(:last-child):after {
+		&:not(:last-child)::after {
 			margin-right: var(--list-separated-spacing, 0);
 			content: #{$separator};
 		}
