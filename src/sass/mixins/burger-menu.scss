@@ -10,8 +10,8 @@
 	position: relative;
 	overflow: hidden;
 
-	width: var(--burger-menu-size, 24px);
-	height: var(--burger-menu-size, 24px);
+	width: var(--burger-menu-width, var(--burger-menu-size, 24px));
+	height: var(--burger-menu-height, var(--burger-menu-size, 24px));
 
 	&::before,
 	&::after {
