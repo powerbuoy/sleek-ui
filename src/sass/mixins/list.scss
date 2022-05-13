@@ -1,5 +1,5 @@
 // Separated
-@mixin list-separated ($separator: var(--list-separated-separator, " | ")) {
+@mixin list-separated ($separator: var(--list-separated-separator, "|")) {
 	margin-left: 0;
 	padding-left: 0;
 	list-style: none;
@@ -8,7 +8,7 @@
 		display: inline-block;
 
 		&:not(:last-child)::after {
-			margin-right: var(--list-separated-spacing, 0);
+			margin: 0 var(--list-separated-spacing, 0.25em);
 			content: #{$separator};
 		}
 	}
