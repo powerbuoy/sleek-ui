@@ -18,6 +18,8 @@ export default class VideoEmbed {
 			'3': 'buffering',
 			'5': 'video-cued'
 		};
+
+		this.readyEvent = new CustomEvent('sleek-ui/video-embed/ready', {bubbles: true});
 	}
 
 	mount () {
@@ -71,6 +73,7 @@ export default class VideoEmbed {
 		}
 		else {
 			this.toggleSrc();
+			this.el.dispatchEvent(this.readyEvent);
 		}
 	}
 
@@ -133,6 +136,7 @@ export default class VideoEmbed {
 		this.ytPlayer = new YT.Player(this.el, {
 			events: {
 				onReady: e => {
+					this.el.dispatchEvent(this.readyEvent);
 					this.wrapEl.classList.add('video-embed--state-' + (this.ytPlayStates[e.data] || 'unknown'));
 				},
 				onStateChange: e => {
@@ -154,6 +158,8 @@ export default class VideoEmbed {
 
 	initVimeo () {
 		this.vimeoPlayer = new Vimeo.Player(this.el);
+
+		this.vimeoPlayer.ready().then(() => this.el.dispatchEvent(this.readyEvent));
 
 		this.vimeoPlayer.on('play', () => {
 			this.wrapEl.classList.add('video-embed--state-playing');
