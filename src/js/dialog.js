@@ -110,8 +110,11 @@ export default class Dialog {
 		// Insert close button
 		var close = document.createElement('a');
 
-		close.classList.add('dialog-close-button');
 		close.innerHTML = '&times;';
+
+		close.classList.add('dialog-close-button');
+		close.setAttribute('role', 'button');
+
 		this.el.appendChild(close);
 
 		this.el.addEventListener('click', e => {
