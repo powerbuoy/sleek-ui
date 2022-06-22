@@ -143,20 +143,34 @@
 				&[type=radio],
 				&[type=checkbox] {
 					width: auto !important;
-					margin-right: var(--spacing-small, 0.75rem);
+					margin-right: var(--spacing-x-small, 0.5rem);
 				}
 			}
 
-			// Legal checkbox
-			.legal-consent-container .hs-form-booleancheckbox-display input {
-				float: none !important;
-				width: auto !important;
-				margin-right: var(--spacing-small, 0.75rem);
-			}
+			// Legal consent
+			.legal-consent-container {
+				// Legal checkbox
+				.hs-form-booleancheckbox-display input {
+					float: none !important;
+					width: auto !important;
+					margin-right: var(--spacing-small, 0.75rem);
+				}
 
-			.legal-consent-container .hs-form-booleancheckbox-display > span {
-				display: inline;
-				margin: 0;
+				// NOTE: What's this?
+				.hs-form-booleancheckbox-display > span {
+					display: inline;
+					margin: 0;
+				}
+
+				// NOTE: We need to overwrite this b/c of HS styling
+				.field.hs-form-field {
+					margin: 0 0 var(--form-field-spacing, var(--spacing-medium));
+				}
+
+				// Need to override this
+				.hs-error-msgs label {
+					color: var(--color-error) !important;
+				}
 			}
 
 			// Cols
@@ -199,9 +213,10 @@
 			}
 		}
 
+		// Each field
 		.hs-form-field {
 			display: block;
-			margin: 0 0 var(--spacing-medium);
+			margin: 0 0 var(--form-field-spacing, var(--spacing-medium));
 
 			// Labels
 			> label {
@@ -217,12 +232,11 @@
 				li {
 					display: inline-block;
 					margin: 0 var(--spacing-medium) var(--spacing-medium) 0;
-				}
-			}
 
-			// Don't show *
-			.hs-form-required {
-				display: none;
+					&:last-child {
+						margin: 0;
+					}
+				}
 			}
 
 			// List of errors
@@ -232,15 +246,20 @@
 
 				li {
 					display: block;
+					margin: 0 0 var(--spacing-small);
+
+					&:last-child {
+						margin-bottom: 0;
+					}
 				}
 			}
 
-			.hs-error-msg,
-			.legal-consent-container .hs-error-msgs label {
+			.hs-error-msg {
 				color: var(--color-error);
 			}
 		}
 
+		// NOTE: What's this?
 		.hs_error_rollup {
 			display: none;
 		}
