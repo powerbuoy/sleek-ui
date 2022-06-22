@@ -235,7 +235,8 @@
 				}
 			}
 
-			.hs-error-msg {
+			.hs-error-msg,
+			.legal-consent-container .hs-error-msgs label {
 				color: var(--color-error);
 			}
 		}
