@@ -45,7 +45,11 @@ $icon-check: '?' !default;
 	> * {
 		position: relative;
 		margin-bottom: var(--list-icon-spacing, 0);
-		padding-left: calc(var(--list-icon-size, var(--body-font-size, 1rem)) * 2);
+		padding-left: calc(var(--list-icon-size, var(--body-font-size, 1rem)) + var(--spacing-medium));
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 
 		&::before {
 			@include icon($icon);
@@ -54,8 +58,10 @@ $icon-check: '?' !default;
 			position: absolute;
 			left: 0;
 			top: 0;
+
 			font-size: var(--list-icon-size, inherit);
 			line-height: inherit;
+			// line-height: calc(var(--body-font-size) * var(--body-line-height));
 		}
 	}
 }
