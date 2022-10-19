@@ -30,7 +30,7 @@ export class DialogTrigger {
 				if (this.config.target.nodeName.toLowerCase() === 'script' || this.config.target.nodeName.toLowerCase() === 'template') {
 					if (this.config.templateDialog) {
 						this.config.templateDialog.className = 'dialog dialog--no-transition ' + this.config.target.className;
-						this.config.templateDialog.innerHTML = this.config.target.innerHTML + '<a class="dialog-close-button">&times;</a>';
+						this.config.templateDialog.innerHTML = this.config.target.innerHTML + '<a class="dialog-close-button" role="button">&times;</a>';
 
 						// HACK: Wait for dialog--no-transition to kick in (for some reason I need around 50ms...)
 						setTimeout(() => {
