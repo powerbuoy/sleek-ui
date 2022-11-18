@@ -7,6 +7,7 @@ export default class Slideshow {
 		this.el = el;
 		this.config = Object.assign({
 			wrapAround: true,
+			imagesLoaded: true,
 			cellAlign: 'left'
 		}, conf);
 	}
