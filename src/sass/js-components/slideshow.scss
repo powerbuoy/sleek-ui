@@ -64,7 +64,7 @@ $icon-right: '>' !default;
 		@if (map-get($components, "slideshow-buttons")) {
 			.flickity-prev-next-button {
 				// Hide in low res as they won't fit
-				@media (--laptop-max) {
+				@media (--desktop-max) {
 					display: none;
 				}
 
