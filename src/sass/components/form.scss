@@ -219,7 +219,8 @@
 			margin: 0 0 var(--form-field-spacing, var(--spacing-medium));
 
 			// Labels
-			> label {
+			> label,
+			> legend {
 				display: block;
 				margin: 0 0 var(--spacing-small, 0.75rem);
 			}
