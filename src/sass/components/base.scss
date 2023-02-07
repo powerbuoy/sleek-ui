@@ -101,10 +101,12 @@ dl {
 
 // Images
 p:has(> img:only-child),
+p:has(> video:only-child),
 figure {
 	margin: 0 0 var(--spacing-medium, 1.5rem);
 
-	img {
+	img,
+	video {
 		display: block;
 		width: 100%;
 	}
