@@ -10,8 +10,17 @@
 		--site-width-max#{$var-suffix}: #{$max};
 	}
 
-	--site-width#{$var-suffix}: var(--site-width-max#{$var-suffix}, 1280px);
-	--site-padding#{$var-suffix}: calc(((100vw - var(--scrollbar-width)) - var(--site-width#{$var-suffix}, 1280px)) / 2);
+	--site-width#{$var-suffix}: min(
+		var(--site-width-min#{$var-suffix}, 90vw),
+		var(--site-width-max#{$var-suffix}, 1280px)
+	);
+	--site-padding#{$var-suffix}: calc(
+		(
+			100vw -
+			var(--scrollbar-width) -
+			var(--site-width#{$var-suffix})
+		) / 2
+	);
 }
 
 :root {
