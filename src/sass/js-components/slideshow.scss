@@ -45,8 +45,9 @@ $icon-right: '>' !default;
 		&:not(.flickity-enabled) {
 			@include grid;
 
-			--grid-gap: var(--slideshow-gap);
 			--grid-cols: var(--slideshow-per-page);
+
+			gap: var(--slideshow-gap);
 		}
 
 		// If using adaptiveHeight: true
