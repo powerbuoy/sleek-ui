@@ -11,7 +11,7 @@
 	}
 
 	--site-width#{$var-suffix}: var(--site-width-max#{$var-suffix}, 1280px);
-	--site-padding#{$var-suffix}: calc((100vw - var(--scrollbar-width) - var(--site-width#{$var-suffix}, 1280px)) / 2);
+	--site-padding#{$var-suffix}: calc(((100vw - var(--scrollbar-width)) - var(--site-width#{$var-suffix}, 1280px)) / 2);
 }
 
 :root {
