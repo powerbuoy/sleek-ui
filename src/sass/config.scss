@@ -92,6 +92,10 @@ $ratios: (
 	--site-width-min: 90vw;
 	--site-width-max: 1280px;
 
+	// Scrollbar width for use with 100vw (calc(100vw - var(--scrollbar-width)) (because for some very stupid reason 100vw includes the scrollbar...)
+	// NOTE: You can se this with JS: document.documentElement.style.setProperty("--scrollbar-width", `${window.innerWidth - document.body.clientWidth}px`);
+	--scrollbar-width: 0px;
+
 	// Colors
 	--body-bg: white;
 
