@@ -53,18 +53,24 @@ export default class VideoEmbed {
 					this.el.setAttribute('src', src);
 				}
 
-				// Add callback
-				const old = window.onYouTubeIframeAPIReady;
-
-				window.onYouTubeIframeAPIReady = () => {
-					if (old) {
-						old();
-					}
-
+				// Check if YouTube is loaded
+				if ('YT' in window) {
 					this.initYouTube();
-				};
+				}
+				// Add callback
+				else {
+					const old = window.onYouTubeIframeAPIReady;
 
-				this.addScript('https://www.youtube.com/iframe_api');
+					window.onYouTubeIframeAPIReady = () => {
+						if (old) {
+							old();
+						}
+
+						this.initYouTube();
+					};
+
+					this.addScript('https://www.youtube.com/iframe_api');
+				}
 			}
 			// Vimeo
 			else if (this.data.provider_name === 'Vimeo') {
