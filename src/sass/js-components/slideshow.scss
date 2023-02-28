@@ -7,7 +7,7 @@ $icon-right: '>' !default;
 @mixin slideshow-numbered-bullets {
 	counter-reset: slideshow-bullets;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: max-content;
 	gap: 0;
 	width: max-content;
 
@@ -17,6 +17,7 @@ $icon-right: '>' !default;
 		counter-increment: slideshow-bullets;
 		grid-row: 1;
 		grid-column: 1;
+
 		opacity: 0;
 		transition: opacity 0.25s var(--easing);
 
@@ -32,7 +33,7 @@ $icon-right: '>' !default;
 	&::after {
 		grid-row: 1;
 		grid-column: 2;
-		content: "/ " counter(slideshow-bullets);
+		content: " / " counter(slideshow-bullets);
 	}
 }
 
