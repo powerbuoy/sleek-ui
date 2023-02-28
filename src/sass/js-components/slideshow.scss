@@ -8,6 +8,7 @@ $icon-right: '>' !default;
 	counter-reset: slideshow-bullets;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+	gap: 0;
 	width: max-content;
 
 	.dot {
