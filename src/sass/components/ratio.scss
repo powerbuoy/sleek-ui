@@ -3,7 +3,8 @@
 $ratios: () !default;
 
 @if (length($ratios)) {
-	[class*="ratio--"] {
+	[class^=ratio--],
+	[class*=" ratio--"] {
 		@include img-ratio(16, 9);
 
 		display: block;
