@@ -25,7 +25,7 @@ export default class DocumentOutline {
 		headings.forEach((el, i) => {
 			const level = parseInt(el.tagName.substr(1));
 			const text = el.innerText;
-			const slug = text.replace(/^[^a-z]+|[^\w:.-]+/gi, '').toLowerCase(); // https://stackoverflow.com/questions/9635625/javascript-regex-to-remove-illegal-characters-from-dom-id
+			const slug = text.replace(/^[^a-z]+|[^\w-]+/gi, '').toLowerCase(); // https://stackoverflow.com/questions/9635625/javascript-regex-to-remove-illegal-characters-from-dom-id
 			const id = `document-outline-${slug}-${level}-${i}-${key}`;
 
 			el.id = id;
