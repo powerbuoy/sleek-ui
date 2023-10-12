@@ -23,7 +23,8 @@
 		top: 50%;
 
 		padding: var(--dialog-padding, 3rem);
-		box-shadow: var(--dialog-shadow, 0 1rem 1rem rgba(0, 0, 0, .25));
+		border-radius: var(--dialog-radius, 0);
+		box-shadow: var(--dialog-shadow, none);
 
 		// Show / hide
 		pointer-events: none;
