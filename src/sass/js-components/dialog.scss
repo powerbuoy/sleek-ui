@@ -6,10 +6,7 @@
 
 	// The dialog
 	div.dialog {
-		// When closed
-		pointer-events: none;
-		opacity: 0;
-		transform: translate(-50%, -50%) scale(0.95);
+		--dialog-visibility-delay: var(--dialog-animation-duration, 0.5s);
 
 		// Basic styling
 		background: var(--dialog-background, white);
@@ -24,14 +21,66 @@
 
 		left: 50%;
 		top: 50%;
-		transform: translate(-50%, -50%);
 
 		padding: var(--dialog-padding, 3rem);
 		box-shadow: var(--dialog-shadow, 0 1rem 1rem rgba(0, 0, 0, .25));
 
-		transition: opacity var(--dialog-animation-duration, 0.5s) var(--easing), transform var(--dialog-animation-duration, 0.5s) var(--easing);
+		// Show / hide
+		pointer-events: none;
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0.75);
+		visibility: hidden;
 
-		// Close button
+		// Transition
+		transition:
+			opacity var(--dialog-animation-duration, 0.5s) var(--easing),
+			transform var(--dialog-animation-duration, 0.5s) var(--easing),
+			visibility 0s var(--dialog-visibility-delay);
+	}
+
+	// Backdrop
+	div.dialog + div.dialog-backdrop {
+		--dialog-backdrop-visibility-delay: var(--dialog-animation-duration, 0.5s);
+
+		background: var(--dialog-backdrop-color, rgba(0, 0, 0, .6));
+
+		position: fixed;
+		inset: 0;
+		z-index: 100;
+
+		// When closed
+		pointer-events: none;
+		opacity: 0;
+		visibility: hidden;
+
+		// Transition
+		transition:
+			opacity var(--dialog-animation-duration, 0.5s) var(--easing),
+			visibility 0s var(--dialog-backdrop-visibility-delay);
+	}
+
+	// When open
+	div.dialog.open,
+	html.no-js div.dialog:target {
+		--dialog-visibility-delay: 0s;
+
+		pointer-events: all;
+		visibility: visible;
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	div.dialog.open + div.dialog-backdrop,
+	html.no-js div.dialog:target + div.dialog-backdrop {
+		--dialog-backdrop-visibility-delay: 0s;
+
+		pointer-events: all;
+		visibility: visible;
+		opacity: 1;
+	}
+
+	// Close button
+	div.dialog {
 		.dialog-close-button {
 			position: absolute;
 			right: calc(var(--dialog-padding, 3rem) / 2);
@@ -53,34 +102,6 @@
 				}
 			}
 		}
-	}
-
-	// Backdrop
-	div.dialog + div.dialog-backdrop {
-		background: var(--dialog-backdrop-color, rgba(0, 0, 0, .6));
-
-		position: fixed;
-		inset: 0;
-		z-index: 100;
-
-		// When closed
-		pointer-events: none;
-		opacity: 0;
-		transition: opacity var(--dialog-animation-duration, 0.5s) var(--easing);
-	}
-
-	// When open
-	div.dialog.open,
-	html.no-js div.dialog:target {
-		pointer-events: all;
-		opacity: 1;
-		transform: translate(-50%, -50%) scale(1);
-	}
-
-	div.dialog.open + div.dialog-backdrop,
-	html.no-js div.dialog:target + div.dialog-backdrop {
-		pointer-events: all;
-		opacity: 1;
 	}
 
 	// Helper class
