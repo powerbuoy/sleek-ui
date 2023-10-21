@@ -71,7 +71,7 @@
 	textarea {
 		resize: vertical;
 
-		&:not([rows]) {
+		&:where(:not([rows])) {
 			height: 12rem;
 		}
 	}
