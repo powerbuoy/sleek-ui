@@ -78,7 +78,7 @@ export default class FilterItems {
 
 				// Or q
 				if (this.q && this.q.value.length) {
-					isQMatch = new RegExp(this.q.value, 'im').test(item.innerHTML);
+					isQMatch = new RegExp(this.q.value, 'im').test(item.innerHTML); // TODO: innerText!?
 				}
 				else {
 					isQMatch = true;

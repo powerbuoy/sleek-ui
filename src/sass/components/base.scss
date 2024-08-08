@@ -100,15 +100,17 @@ dl {
 }
 
 // Images
-p:has(> img:only-child),
-p:has(> video:only-child),
-figure {
-	margin: 0 0 var(--spacing-medium, 1.5rem);
+@if not variable-exists(disable-img-scaling) {
+	p:has(> img:only-child),
+	p:has(> video:only-child),
+	figure {
+		margin: 0 0 var(--spacing-medium, 1.5rem);
 
-	img,
-	video {
-		display: block;
-		width: 100%;
+		img,
+		video {
+			display: block;
+			width: 100%;
+		}
 	}
 }
 
