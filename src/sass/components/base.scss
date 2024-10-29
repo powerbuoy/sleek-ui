@@ -9,9 +9,11 @@
 	text-underline-offset: var(--text-underline-offset, initial);
 }
 
-::selection {
-	background-color: var(--selection-bg, var(--color-primary, initial));
-	color: var(--selection-color, initial);
+@if not variable-exists(disable-selection-styling) {
+	::selection {
+		background-color: var(--selection-bg, var(--color-primary, initial));
+		color: var(--selection-color, initial);
+	}
 }
 
 html {
