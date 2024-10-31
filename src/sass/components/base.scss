@@ -9,9 +9,11 @@
 	text-underline-offset: var(--text-underline-offset, initial);
 }
 
-::selection {
-	background-color: var(--selection-bg, var(--color-primary, initial));
-	color: var(--selection-color, initial);
+@if not variable-exists(disable-selection-styling) {
+	::selection {
+		background-color: var(--selection-bg, var(--color-primary, initial));
+		color: var(--selection-color, initial);
+	}
 }
 
 html {
@@ -100,15 +102,17 @@ dl {
 }
 
 // Images
-p:has(> img:only-child),
-p:has(> video:only-child),
-figure {
-	margin: 0 0 var(--spacing-medium, 1.5rem);
+@if not variable-exists(disable-img-scaling) {
+	p:has(> img:only-child),
+	p:has(> video:only-child),
+	figure {
+		margin: 0 0 var(--spacing-medium, 1.5rem);
 
-	img,
-	video {
-		display: block;
-		width: 100%;
+		img,
+		video {
+			display: block;
+			width: 100%;
+		}
 	}
 }
 
