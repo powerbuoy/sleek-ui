@@ -4,6 +4,7 @@
 	font-family: var(--heading-font-family, inherit);
 	font-weight: var(--heading-font-weight, bold);
 	font-style: var(--heading-font-style, normal);
+	font-variation-settings: var(--heading-font-variation, normal);
 
 	line-height: var(--heading-line-height, 1.2);
 	letter-spacing: var(--heading-letter-spacing, 0);
@@ -34,6 +35,7 @@
 	font-family: var(--body-font-family, sans-serif);
 	font-weight: var(--body-font-weight, normal);
 	font-style: var(--body-font-style, normal);
+	font-variation-settings: var(--body-font-variation, normal);
 
 	line-height: var(--body-line-height, 1.6);
 	letter-spacing: var(--body-letter-spacing, 0);
