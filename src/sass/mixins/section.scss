@@ -1,5 +1,5 @@
 @mixin section ($max: false, $min: false) {
 	@include site-width($min, $max); // TODO: Only include if $min or $max?
 
-	padding: var(--section-padding, 6rem) var(--site-padding);
+	padding: var(--section-padding-top, var(--section-padding)) var(--site-padding) var(--section-padding-bottom, var(--section-padding));
 }
