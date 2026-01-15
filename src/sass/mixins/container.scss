@@ -2,5 +2,5 @@
 	@include site-width($min, $max); // TODO: Only include if $min or $max?
 
 	width: var(--site-width);
-	margin: var(--container-margin, 6rem) auto; // TODO: Use --site-padding instead of auto and remove width?
+	margin: var(--container-margin-top, var(--container-margin)) auto var(--container-margin-bottom, var(--container-margin)); // TODO: Use --site-padding instead of auto and remove width?
 }
