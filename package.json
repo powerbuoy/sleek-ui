@@ -18,6 +18,6 @@
   "homepage": "https://github.com/powerbuoy/sleek-ui#readme",
   "dependencies": {
     "flickity": "^2.3.0",
-    "normalize.css": "^8.0.1"
+    "modern-normalize": "^3.0.1"
   }
 }
