@@ -54,7 +54,9 @@ export class DialogTrigger {
 export default class Dialog {
 	constructor (el, conf) {
 		this.el = el;
-		this.config = Object.assign({}, conf);
+		this.config = Object.assign({
+			modal: false
+		}, conf);
 		this.openEvent = new CustomEvent('sleek-ui/dialog/open', {
 			bubbles: true,
 			detail: {
